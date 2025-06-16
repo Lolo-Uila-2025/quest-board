@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <title>Scoreboard</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-links {
+      margin-top: 20px;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .nav-links a:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
   <h1>Student Scoreboard</h1>
+
   <table id="scoreboard">
     <thead>
       <tr><th>Name</th><th>Points</th></tr>
@@ -14,7 +36,10 @@
     <tbody></tbody>
   </table>
 
-  <a href="quests.html">View Quest Board</a>
+  <div class="nav-links">
+    <a href="quests.html">View Quest Board</a>
+    <a href="shop.html">View Shop</a>
+  </div>
 
   <script src="data.js"></script>
   <script>

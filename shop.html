@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Points Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shop-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .shop-item {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      width: 240px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+    }
+
+    .shop-item img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .shop-item h3 {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .shop-item p {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .shop-item .cost {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    .back-link {
+      display: block;
+      margin: 10px 0 0 20px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Back to Scoreboard</a>
+  <h1 style="text-align:center;">Points Shop</h1>
+
+  <div class="shop-container" id="shop-container"></div>
+
+  <script>
+    const shopItems = [
+      {
+        name: "Pokémon Booster Pack",
+        image: "https://images.pokemontcg.io/swsh12/1.png",
+        description: "One sealed Pokémon card pack.",
+        cost: 25
+      },
+      {
+        name: "Snack of Your Choice",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Potato_chips.jpg",
+        description: "Chips, cookies, or candy from the snack bin.",
+        cost: 10
+      },
+      {
+        name: "Homework Pass",
+        image: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
+        description: "Skip one homework assignment (teacher approved).",
+        cost: 50
+      },
+      {
+        name: "Mini Puzzle Cube",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rubik%27s_Cube_by_keqs.jpg",
+        description: "A fun brain teaser to keep or gift.",
+        cost: 20
+      },
+      {
+        name: "Starbucks Gift Card",
+        image: "https://1000logos.net/wp-content/uploads/2021/05/Starbucks-logo.png",
+        description: "$5 Starbucks gift card.",
+        cost: 60
+      }
+    ];
+
+    const container = document.getElementById("shop-container");
+
+    shopItems.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "shop-item";
+      div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <div class="cost">${item.cost} pts</div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
