@@ -4,21 +4,97 @@
   <meta charset="UTF-8">
   <title>Quest Board</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .quest-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    .quest-link {
+      display: block;
+      padding: 0.5em;
+      border-radius: 8px;
+      text-decoration: none;
+      background-color: #f5f5f5;
+      border-left: 4px solid transparent;
+    }
+
+    .quest-link:hover {
+      background-color: #e0e0e0;
+    }
+
+    .challenge .quest-link {
+      border-left-color: #e53935;
+      background-color: #fff5f5;
+      color: #b71c1c;
+    }
+
+    .day-label {
+      font-size: 0.85em;
+      color: #888;
+      margin-left: 0.5em;
+    }
+  </style>
 </head>
 <body>
-  <!-- Back-to-scoreboard link -->
   <p><a href="index.html" class="back-link">← Back to Scoreboard</a></p>
-
   <h1>Quest Board</h1>
-  <ul id="quest-list"></ul>
+
+  <div class="quest-container">
+    <div class="column" id="missions">
+      <h2>Missions</h2>
+      <ul></ul>
+    </div>
+    <div class="column" id="challenges">
+      <h2>Challenges</h2>
+      <ul></ul>
+    </div>
+  </div>
 
   <script src="data.js"></script>
   <script>
-    const list = document.getElementById("quest-list");
+    const missionList = document.querySelector("#missions ul");
+    const challengeList = document.querySelector("#challenges ul");
+
+    // Sort quests by day number
+    quests.sort((a, b) => a.day - b.day);
+
     quests.forEach(q => {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="quests/${q.id}.html">${q.title} (+${q.points} pts)</a>`;
-      list.appendChild(li);
+      li.className = q.type;
+
+      const link = document.createElement("a");
+      link.href = `quests/${q.id}.html`;
+      link.className = "quest-link";
+      link.textContent = `${q.title} (+${q.points} pts)`;
+
+      const day = document.createElement("span");
+      day.className = "day-label";
+      day.textContent = `(Day ${q.day})`;
+
+      link.appendChild(day);
+      li.appendChild(link);
+
+      (q.type === "challenge" ? challengeList : missionList).appendChild(li);
     });
   </script>
 </body>
