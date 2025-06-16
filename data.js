@@ -24,16 +24,11 @@ const students = [
       completedBy: ["alice", "george"]      // sample data
     },
     {
-      id: "riddle",
-      title: "Weekly Riddle",
+      id: "variables",
+      title: "Variable Practice",
       points: 5,
       completedBy: ["charlie"]
     },
-    {
-      id: "extra-credit",
-      title: "Extra Credit Assignment",
-      points: 15,
-      completedBy: []                       // none yet
-    }
+
   ];
   

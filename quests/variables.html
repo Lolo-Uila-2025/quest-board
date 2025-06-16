@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Variable Basics Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <!-- Back-to-board link -->
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Variable Basics</h1>
+
+  <p>The goal is to:</p>
+  <ul>
+    <li>Declare variables of different types</li>
+    <li>Assign values to them</li>
+    <li>Print those values to the Serial Monitor</li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Declare three variables:
+      <ul>
+        <li>An <code>int</code> named <code>score</code> set to 100</li>
+        <li>A <code>float</code> named <code>accuracy</code> set to 99.5</li>
+        <li>A <code>bool</code> named <code>isGameOver</code> set to <code>false</code></li>
+      </ul>
+    </li>
+    <li>Use <code>Serial.println()</code> to print out each variable's value, like this:
+      <pre><code>Serial.println(score);</code></pre>
+    </li>
+    <li>Upload your sketch to the Arduino and open the Serial Monitor (magnifying glass icon) to view your printed variables.</li>
+  </ol>
+
+  <p>When you're done, show your output to the teacher. If everything looks good, you'll earn <strong>+5 points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <!-- Load shared data, then build the two lists -->
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "variables");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
