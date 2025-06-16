@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Double Trouble</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Challenge Quest: Double Trouble</h1>
+
+  <p>This is a <strong>challenge quest</strong> — you're given the goal, but not the steps. Your mission: create a program that starts with a number and doubles it every second, printing each result. Stop after 5 times.</p>
+
+  <h2>Goal</h2>
+  <p>Your program should output something like this to the Serial Monitor:</p>
+  <pre>
+2
+4
+8
+16
+32
+  </pre>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>Start with a number (like <code>2</code>).</li>
+    <li>Every second, multiply it by 2 and print the result.</li>
+    <li>Repeat this exactly 5 times, then stop printing.</li>
+    <li>You may do this challenge with either a <code>while</code> or <code>for</code> loop in setup() or in <code>loop()</code>.</li>
+  </ul>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Use a variable to store the current number.</li>
+    <li>Use <code>delay()</code> to wait 1 second between prints.</li>
+    <li>You may need a loop or a counter to know when to stop.</li>
+    <li>Don't forget to use <code>Serial.begin(9600);</code> in <code>setup()</code>.</li>
+  </ul>
+
+  <p>Show your completed program and Serial Monitor output to the teacher to earn <strong>+10 challenge points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this challenge?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "double-trouble");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

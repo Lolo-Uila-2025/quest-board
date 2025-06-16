@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>While Loop Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Learning While Loops</h1>
+
+  <p>In programming, we often want something to repeat — but only **while** a certain condition is true. That’s where a <code>while</code> loop comes in. It checks a condition, and as long as the condition is true, it keeps running the code inside.</p>
+
+  <h2>Real-Life Analogy</h2>
+  <p>Imagine this: You’re pouring water into a cup.</p>
+  <ul>
+    <li>Before each pour, you check: <em>"Is the cup full?"</em></li>
+    <li>If the answer is <strong>no</strong>, you pour more water and check again.</li>
+    <li>You repeat this **while the cup is not full**.</li>
+    <li>Once it <strong>is</strong> full, you stop.</li>
+  </ul>
+  <p>That’s a while loop: <strong>check first → do something → repeat if still true</strong>.</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How to use a <code>while</code> loop to repeat actions</li>
+    <li>How to avoid infinite loops by updating your variables</li>
+    <li>Why conditions matter in programming logic</li>
+  </ul>
+
+  <h2>Your Task</h2>
+  <p>Create a program that prints numbers from 1 to 5 using a <code>while</code> loop.</p>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li><strong>All your code must go inside <code>setup()</code></strong> (leave <code>loop()</code> empty).</li>
+    <li>Start serial communication:
+      <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>Use a variable to track the number you're printing. Let the <code>while</code> loop keep printing numbers **as long as your condition is true**.</li>
+    <li>Be sure to update the variable inside the loop — otherwise the loop will never stop!</li>
+    <li>The syntax is: 
+        <pre><code>while (condition) {
+        // code to execute if condition is true
+        }</code></pre> 
+        </li>
+  </ol>
+
+  <p><strong>Hint:</strong> Think: "What number do I start with? What number should I stop at? How do I move from one to the next?"</p>
+
+  <h2>Expected Output</h2>
+  <pre>
+1
+2
+3
+4
+5
+  </pre>
+
+  <p>Show your working program and Serial Monitor output to the teacher to earn <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "while-loops");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

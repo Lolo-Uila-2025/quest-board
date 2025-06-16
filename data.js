@@ -59,6 +59,52 @@ const students = [
         points: 5,
         completedBy: []
     },
+    {
+        id: "print-every-second",
+        title: "Print Every Second for 10 Seconds",
+        points: 10,
+        completedBy: []
+    },
+    {
+        id: "double-trouble",
+        title: "Double Trouble",
+        points: 10,
+        completedBy: []
+    },
+    {
+        id: "odd-squad",
+        title: "Odd Squad",
+        points: 10,
+        completedBy: []
+    },
+    {
+        id: "while-loops",
+        title: "Learning While Loops",
+        points: 5,
+        completedBy: []
+    },
+    {
+        id: "for-loops",
+        title: "Learning For Loops",
+        points: 5,
+        completedBy: []
+    },
+    {
+        id: "power-up",
+        title: "Power Up!",
+        points: 10,
+        completedBy: []
+      },
+      {
+        id: "running-total",
+        title: "Running Total",
+        points: 10,
+        completedBy: []
+    },
+    
+        
+      
+      
 
   
 

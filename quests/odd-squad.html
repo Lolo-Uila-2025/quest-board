@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Odd Squad</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Challenge Quest: Odd Squad</h1>
+
+  <p>This is a <strong>challenge quest</strong> — no exact steps are given. Your task: write a program that prints all the odd numbers from 1 to 19 using a loop.</p>
+
+  <h2>Goal</h2>
+  <p>Your program should output exactly:</p>
+  <pre>
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+  </pre>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>All code must be written inside the setup() function. <strong>Don't write inside the loop() function!</strong></li>
+    <li>Use a loop (like <code>for</code> or <code>while</code>).</li>
+    <li>Only print numbers that are odd.</li>
+    <li>You may use <code>if</code> statements or a clever loop step value.</li>
+    <li>All numbers should be printed to the Serial Monitor.</li>
+  </ul>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Remember: an odd number is not divisible evenly by 2.</li>
+    <li><code>number % 2 != 0</code> checks for oddness.</li>
+    <li>Don’t forget <code>Serial.begin(9600);</code>!</li>
+  </ul>
+
+  <p>Show your output to the teacher to earn <strong>+10 challenge points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this challenge?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "odd-squad");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

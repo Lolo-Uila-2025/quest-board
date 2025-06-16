@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Print Every Second</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Challenge Quest: Print Every Second for 10 Seconds</h1>
+
+  <p>This is a <strong>challenge quest</strong> — no step-by-step instructions this time! Your task is to figure out how to print the number of seconds passed, once per second, from 1 to 10.</p>
+
+  <h2>Goal</h2>
+  <p>Your program should output the following to the Serial Monitor:</p>
+  <pre>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+  </pre>
+
+  <p>After reaching 10, the program should stop printing anything.</p>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>You may want to use a variable to track the number of seconds.</li>
+    <li>You already know how to use <code>delay()</code> to create timing.</li>
+    <li><code>Serial.begin()</code> is still required!</li>
+    <li>Can you make this work in <code>loop()</code> without printing forever?</li>
+  </ul>
+
+  <p>Show your working program and Serial Monitor output to the teacher to earn <strong>+10 challenge points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this challenge?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "print-every-second");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

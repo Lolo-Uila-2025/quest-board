@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Running Total</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Challenge Quest: Running Total</h1>
+
+  <p>This challenge will test your ability to use a loop to keep track of a growing total.</p>
+
+  <h2>Goal</h2>
+  <p>Add up the numbers from 1 to 10, then print the total.</p>
+
+  <p>Your Serial Monitor should say:</p>
+  <pre>
+The total is: 55
+  </pre>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>All code must be written inside the setup() function. <strong>Don't write inside the loop() function!</strong></li>
+    <li>Use a loop to go from 1 to 10.</li>
+    <li>Create a variable that keeps track of the total.</li>
+    <li>After the loop finishes, print the result using <code>Serial.println()</code>.</li>
+  </ul>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Start your total at 0.</li>
+    <li>Each time through the loop, add the current number to the total.</li>
+    <li>You can use <code>total += i;</code></li>
+  </ul>
+
+  <p>Show your working output to the teacher to earn <strong>+10 challenge points</strong>.</p>
+
+  <hr />
+  <h2>Who’s already completed this challenge?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "running-total");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

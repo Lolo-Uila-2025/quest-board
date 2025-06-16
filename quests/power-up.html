@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Power Up</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Challenge Quest: Power Up!</h1>
+
+  <p>In this challenge, you'll use a loop to print a number that **doubles every time** until it reaches or passes 100.</p>
+
+  <h2>Goal</h2>
+  <p>Your Serial Monitor should print something like this:</p>
+  <pre>
+1
+2
+4
+8
+16
+32
+64
+128
+  </pre>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>All code must be written inside the setup() function. <strong>Don't write inside the loop() function!</strong></li>
+    <li>Start with the number 1.</li>
+    <li>Each time through the loop, multiply it by 2 and print it.</li>
+    <li>Keep looping <strong>until the number is greater than or equal to 100</strong>.</li>
+  </ul>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Use a variable to store the number.</li>
+    <li>You can use either a <code>while</code> loop or a <code>for</code> loop — your choice!</li>
+    <li>Don’t forget <code>Serial.begin(9600);</code> in <code>setup()</code>.</li>
+  </ul>
+
+  <p>Show your output to the teacher to earn <strong>+10 challenge points</strong>!</p>
+
+  <hr />
+  <h2>Who’s already completed this challenge?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "power-up");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

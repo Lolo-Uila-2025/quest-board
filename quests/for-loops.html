@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Loop Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Learning For Loops</h1>
+
+  <p>A <code>for</code> loop is like setting a timer that knows three things:</p>
+  <ol>
+    <li><strong>Where to start</strong> (the first value)</li>
+    <li><strong>When to stop</strong> (the condition)</li>
+    <li><strong>How to count</strong> (what changes every turn)</li>
+  </ol>
+
+  <h2>Real-Life Analogy</h2>
+  <p>Picture climbing a five-step staircase:</p>
+  <ul>
+    <li><em>Start</em> on step <strong>1</strong></li>
+    <li>Keep climbing <em>until</em> you’re above step <strong>5</strong></li>
+    <li>Move up <strong>one step at a time</strong></li>
+  </ul>
+  <p>That’s exactly what a <code>for</code> loop does with numbers!</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>The three parts of <code>for(initial; condition; change)</code></li>
+    <li>How to repeat code a set number of times</li>
+    <li>How a <code>for</code> loop automatically stops when the condition is false</li>
+  </ul>
+
+  <h2>Your Task</h2>
+  <p>Write a program that prints the numbers 1 through 5 using a <code>for</code> loop.</p>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Create a new sketch in the Arduino IDE.</li>
+    <li><strong>All code goes in <code>setup()</code></strong> (leave <code>loop()</code> empty).</li>
+    <li>Start serial communication:<br>
+      <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>Build your <code>for</code> loop. Remember its three parts:  
+      <pre><code>// for (start ; keep-going? ; each-turn)
+for (int i = 1; i &lt;= 5; i++) {
+  Serial.println(i);
+}</code></pre>
+      <ul style="margin-top:6px;">
+        <li><strong>int&nbsp;i&nbsp;=&nbsp;1</strong> → start at 1</li>
+        <li><strong>i&nbsp;&lt;=&nbsp;5</strong> → keep going while i is 5 or less</li>
+        <li><strong>i++</strong> → add 1 each turn</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p><strong>Hint:</strong> Change any of those three parts and watch how the loop behaves!</p>
+
+  <h2>Expected Output</h2>
+  <pre>
+1
+2
+3
+4
+5
+  </pre>
+
+  <p>Show your Serial Monitor output to the teacher to earn <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "for-loops");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>
