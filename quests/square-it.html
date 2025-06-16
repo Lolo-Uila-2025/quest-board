@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Square It!</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Challenge: Square It!</h1>
+
+  <p>Can your function do math and return the result? Let’s try squaring a number!</p>
+
+  <h2>What To Do</h2>
+  <ol>
+    <li>Write a function named <code>square()</code> that takes one number.</li>
+    <li>The function should return that number multiplied by itself.</li>
+    <li>Call the function a few times and print the result using <code>Serial.println()</code>.</li>
+  </ol>
+
+  <h2>Example Output</h2>
+  <pre>
+4
+16
+100
+  </pre>
+
+  <p>Show your working Serial output to the teacher to earn <strong>+5 points</strong>!</p>
+
+  <hr />
+  <h2>Who’s already completed this quest?</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "square-it");
+    const finished = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

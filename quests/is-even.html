@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Is It Even?</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Challenge: Is It Even?</h1>
+
+  <p>Your mission is to write a function that checks if a number is even.</p>
+
+  <h2>What To Do</h2>
+  <ol>
+    <li>Create a function that takes a number as input (parameter).</li>
+    <li>Use the modulus operator (<code>%</code>) to check if it's divisible by 2.</li>
+    <li>Return <code>true</code> if it's even, <code>false</code> if not.</li>
+    <li>Call the function a few times in <code>setup()</code> and print the result using <code>Serial.println()</code>.</li>
+  </ol>
+
+  <h2>Example Output</h2>
+  <pre>
+true
+false
+true
+  </pre>
+
+  <p>Show your working code and Serial Monitor to the teacher to earn <strong>+5 points</strong>!</p>
+
+  <hr />
+  <h2>Who’s already completed this quest?</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "is-even");
+    const finished = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

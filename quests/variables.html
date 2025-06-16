@@ -11,30 +11,47 @@
 
   <h1>Quest: Variable Basics</h1>
 
-  <p>The goal is to:</p>
+  <p>In this quest, you'll learn how to store information in your code using something called <strong>variables</strong>.</p>
+
+  <h2>What Is a Variable?</h2>
+  <p>A variable is like a labeled box in your code. You can put a value inside it — like a number, a score, or a true/false — and your program can read or change what's inside later.</p>
+
+  <p>For example:</p>
   <ul>
-    <li>Declare variables of different types</li>
-    <li>Assign values to them</li>
-    <li>Print those values to the Serial Monitor</li>
+    <li><strong>score</strong> could be 100</li>
+    <li><strong>accuracy</strong> could be 99.5</li>
+    <li><strong>isGameOver</strong> could be <code>false</code> (meaning the game is still going)</li>
   </ul>
+
+  <h2>Your Task</h2>
+  <p>You're going to write a program that creates three variables, gives them values, and prints those values to the Serial Monitor.</p>
 
   <h2>Instructions</h2>
   <ol>
     <li>Open the Arduino IDE and create a new sketch.</li>
-    <li>Declare three variables:
+    <li>In the <code>setup()</code> function, start your serial monitor:
+      <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>Right after that, create three variables with these values:
       <ul>
-        <li>An <code>int</code> named <code>score</code> set to 100</li>
-        <li>A <code>float</code> named <code>accuracy</code> set to 99.5</li>
-        <li>A <code>bool</code> named <code>isGameOver</code> set to <code>false</code></li>
+      <li>An <code>int</code> named <code>score</code> set to <strong>100</strong>:
+        <pre><code>int score = 100;</code></pre>
+      </li>
+      <li>A <code>float</code> named <code>accuracy</code> set to <strong>99.5</strong></li>
+      <li>A <code>bool</code> named <code>isGameOver</code> set to <strong>false</strong></li>
       </ul>
     </li>
-    <li>Use <code>Serial.println()</code> to print out each variable's value, like this:
-      <pre><code>Serial.println(score);</code></pre>
+    <li>Use <code>Serial.println()</code> to print out each of your variables:
+      <pre><code>
+  Serial.println(score);
+  Serial.println(accuracy);
+  Serial.println(isGameOver);
+      </code></pre>
     </li>
-    <li>Upload your sketch to the Arduino and open the Serial Monitor (magnifying glass icon) to view your printed variables.</li>
-  </ol>
+    <li>Upload your code and open the Serial Monitor (magnifying glass icon in the top right) to see your results.</li>
+    </ol>
 
-  <p>When you're done, show your output to the teacher. If everything looks good, you'll earn <strong>+5 points</strong>!</p>
+  <p>When you're done, you should see all three values printed in the Serial Monitor window. Show your teacher to earn <strong>+5 points</strong>!</p>
 
   <hr />
 

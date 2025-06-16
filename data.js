@@ -2,14 +2,14 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "alice",   name: "Alice",   points: 120 },
-    { id: "bob",     name: "Bob",     points:  85 },
-    { id: "charlie", name: "Charlie", points:  95 },
-    { id: "diana",   name: "Diana",   points: 110 },
-    { id: "ethan",   name: "Ethan",   points:  70 },
-    { id: "fiona",   name: "Fiona",   points: 105 },
-    { id: "george",  name: "George",  points:  90 },
-    { id: "hannah",  name: "Hannah",  points: 130 }
+    { id: "alice",   name: "Alice",   points: 0 },
+    { id: "bob",     name: "Bob",     points: 0 },
+    { id: "charlie", name: "Charlie", points: 0 },
+    { id: "diana",   name: "Diana",   points: 0 },
+    { id: "ethan",   name: "Ethan",   points: 0 },
+    { id: "fiona",   name: "Fiona",   points: 0 },
+    { id: "george",  name: "George",  points: 0 },
+    { id: "hannah",  name: "Hannah",  points: 0 }
   ];
   
   // ---------------------------------------------------------------------
@@ -21,7 +21,7 @@ const students = [
       id: "variables",
       title: "Variable Basics",
       points: 5,
-      completedBy: ["charlie"]
+      completedBy: []
     },
     {
         id: "serial",
@@ -101,8 +101,43 @@ const students = [
         points: 10,
         completedBy: []
     },
-    
-        
+    {
+        id: "functions",
+        title: "Writing Your Own Functions",
+        points: 5,
+        completedBy: []
+      },
+      {
+        id: "function-parameters",
+        title: "Function Parameters",
+        points: 5,
+        completedBy: []
+      },
+      {
+        id: "function-return",
+        title: "Function Return Values",
+        points: 5,
+        completedBy: []
+      },
+      {
+        id: "is-even",
+        title: "Is It Even?",
+        points: 5,
+        completedBy: []
+      },
+      {
+        id: "square-it",
+        title: "Square It!",
+        points: 5,
+        completedBy: []
+      },
+      {
+        id: "bigger-one",
+        title: "The Bigger One",
+        points: 5,
+        completedBy: []
+      },
+      
       
       
 

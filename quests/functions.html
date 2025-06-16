@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Function Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Writing Your Own Functions</h1>
+
+  <p>In this quest, you'll learn how to make your own function — a way to organize your code so you can use the same block of instructions over and over again.</p>
+
+  <h2>What Is a Function?</h2>
+  <p>A function is like a recipe. You give it a name and a list of steps, and you can “call” it whenever you want to follow those steps.</p>
+
+  <p>Example in real life:</p>
+  <ul>
+    <li>You create a recipe called <strong>makeToast()</strong></li>
+    <li>Inside the recipe: put bread in toaster, push button, wait</li>
+    <li>Anytime you want toast, you just call <strong>makeToast()</strong></li>
+  </ul>
+
+  <h2>Your Task</h2>
+  <p>You’re going to write your own function that prints a message to the Serial Monitor. Then you’ll call it from the <code>setup()</code> function.</p>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Inside <code>setup()</code>, start the Serial Monitor:
+      <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>Write your own function above <code>setup()</code>. Give it the name <code>greet()</code> and make it print a greeting:
+      <pre><code>
+void greet() {
+  Serial.println("Hello, I am a custom function!");
+}
+      </code></pre>
+    </li>
+    <li>Inside <code>setup()</code>, call your function by name:
+      <pre><code>greet();</code></pre>
+    </li>
+    <li>Upload your sketch and open the Serial Monitor. You should see your greeting message appear.</li>
+  </ol>
+
+  <p>Great job! You just made a reusable block of code. Show your output to the teacher to earn <strong>+5 points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "functions");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

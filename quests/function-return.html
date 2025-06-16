@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Function Return Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Returning Values from Functions</h1>
+
+  <p>Last time, you made a function that took in a value (a <strong>parameter</strong>). Now it’s time to learn how your function can <strong>send a value back</strong>. That’s called a <strong><code>return</code></strong>.</p>
+
+  <h2>What Does <code>return</code> Mean?</h2>
+  <p>Imagine a vending machine: you press a button, and it gives you something back. That’s what a function with a <code>return</code> does — you call it, and it sends a value back to you.</p>
+
+  <p>For example:</p>
+  <pre><code>
+int doubleIt(int num) {
+  return num * 2;
+}
+  </code></pre>
+  <p>When you call <code>doubleIt(5)</code>, it gives you back <code>10</code>.</p>
+
+  <h2>Your Task</h2>
+  <p>Create a function that takes a number, doubles it, and returns the result. Then print that result to the Serial Monitor.</p>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Start your <code>setup()</code> and <code>loop()</code>:
+      <pre><code>
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+}
+      </code></pre>
+    </li>
+    <li>Above <code>setup()</code>, write a function that takes an <code>int</code>, doubles it, and <strong>returns</strong> the answer:
+      <pre><code>
+int doubleIt(int num) {
+  return num * 2;
+}
+      </code></pre>
+    </li>
+    <li>Inside <code>setup()</code>, call the function and print the result:
+      <pre><code>
+int result = doubleIt(6);
+Serial.println(result);
+      </code></pre>
+    </li>
+    <li>Try it again with a different number!</li>
+  </ol>
+
+  <h2>Expected Output</h2>
+  <pre>
+12
+  </pre>
+
+  <p>Show your Serial Monitor output and working code to the teacher to earn <strong>+5 points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "function-return");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

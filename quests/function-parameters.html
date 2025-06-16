@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Function Parameters Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Function Parameters</h1>
+
+  <p>You’ve already learned how to make your own function. In this quest, you’ll take it a step further: your function will be able to accept <strong>input</strong> — called a <em>parameter</em>.</p>
+
+  <h2>What’s a Parameter?</h2>
+  <p>Think of a parameter like an ingredient you pass into a recipe.</p>
+
+  <ul>
+    <li>Imagine a function named <code>makeSandwich()</code>.</li>
+    <li>What if you want to choose the <strong>filling</strong> (like ham, turkey, or peanut butter)?</li>
+    <li>You can add a parameter like this: <code>makeSandwich("turkey");</code></li>
+  </ul>
+
+  <p>Now the function can use that info to change what it does!</p>
+
+  <h2>Your Task</h2>
+  <p>Create a function that takes a number and prints: <code>"The number is: [your number]"</code></p>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Start with the basic setup code:
+      <pre><code>void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+}
+      </code></pre>
+    </li>
+    <li>Above <code>setup()</code>, create your own function like this:
+      <pre><code>
+void printNumber(int num) {
+  Serial.print("The number is: ");
+  Serial.println(num);
+}
+      </code></pre>
+    </li>
+    <li>Then inside <code>setup()</code>, try calling your function with different values:
+      <pre><code>
+printNumber(42);
+printNumber(7);
+printNumber(123);
+      </code></pre>
+    </li>
+    <li>Upload your code and open the Serial Monitor. You should see the results!</li>
+  </ol>
+
+  <h2>Expected Output</h2>
+  <pre>
+The number is: 42
+The number is: 7
+The number is: 123
+  </pre>
+
+  <p>Once it works, show your Serial Monitor to the teacher to earn <strong>+5 points</strong>!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "function-parameters");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>
