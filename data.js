@@ -18,12 +18,6 @@ const students = [
   // ---------------------------------------------------------------------
   const quests = [
     {
-      id: "cleanup",
-      title: "Classroom Cleanup",
-      points: 10,
-      completedBy: ["alice", "george"]      // sample data
-    },
-    {
       id: "variables",
       title: "Variable Basics",
       points: 5,
@@ -53,6 +47,19 @@ const students = [
         points: 5,
         completedBy: []
     },
+    {
+        id: "if-statements",
+        title: "Learning If Statements",
+        points: 5,
+        completedBy: []
+    },      
+    {
+        id: "if-else-tree",
+        title: "If-Else Trees",
+        points: 5,
+        completedBy: []
+    },
+
   
 
   ];

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>If Statement Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Learning If Statements</h1>
+
+  <p>In this quest, you’ll learn how to use <code>if</code> statements to make decisions in your code. This is one of the most important tools in programming!</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How to write an <code>if</code> condition</li>
+    <li>How to compare values using <code>==</code>, <code>&gt;</code>, <code>&lt;</code>, etc.</li>
+    <li>How to make your program do different things based on different conditions</li>
+  </ul>
+
+<h2>Instructions</h2>
+<ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Start serial communication in <code>setup()</code>:
+        <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>In <code>loop()</code>, create a variable called <code>score</code> and set it to any number (like 85).</li>
+    <li>Use an <code>if</code> statement to check if <code>score</code> is greater than or equal to 90. 
+        The syntax is: 
+        <pre><code>if (condition) {
+    // code to execute
+}</code></pre> 
+        For example: 
+        <pre><code>if (score < 5) {
+    Serial.println("Ok!");
+}</code></pre>
+    </li>
+    <li>Test your program by changing the <code>score</code> value and uploading again.</li>
+</ol>
+
+  <p>Show your Serial Monitor output for at least two different values to the teacher to earn <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "if-statements");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>If-Else Tree Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Mastering If-Else Trees</h1>
+
+  <p>In this quest, you’ll learn how to use <code>if</code>, <code>else if</code>, and <code>else</code> statements to handle multiple conditions in your code. This is a powerful way to make your programs smarter!</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How to write an <code>if-else</code> tree</li>
+    <li>How to handle multiple conditions using <code>else if</code></li>
+    <li>How to provide a default action using <code>else</code></li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Start serial communication in <code>setup()</code>:
+        <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>In <code>loop()</code>, create a variable called <code>score</code> and set it to any number (like 75).</li>
+    <li>Write an <code>if-else</code> tree:
+      <ul>
+      <li>If <code>score</code> is greater than or equal to 90, print <code>"Excellent!"</code>.</li>
+      <li>If <code>score</code> is between 70 and 89 (inclusive), print <code>"Good job!"</code>.</li>
+      <li>If <code>score</code> is below 70, print <code>"Keep trying!"</code>.</li>
+      </ul>
+        </li>
+        <li>Explanation: The <code>if</code> statement checks a condition, and if it's true, the code inside its block runs. 
+      The <code>else if</code> statement allows you to check additional conditions, and the <code>else</code> block runs if none of the previous conditions are true.</li>
+        <li>The syntax is: 
+        <pre><code>if (condition1) {
+        // code to execute if condition1 is true
+        } else if (condition2) {
+        // code to execute if condition2 is true
+        } else {
+        // code to execute if none of the above conditions are true
+        }</code></pre> 
+        </li>
+    <li>Test your program by changing the <code>score</code> value and uploading again.</li>
+  </ol>
+
+  <p>Show your Serial Monitor output for at least three different values to the teacher to earn <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "if-else-tree");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
