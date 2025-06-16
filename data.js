@@ -25,10 +25,35 @@ const students = [
     },
     {
       id: "variables",
-      title: "Variable Practice",
+      title: "Variable Basics",
       points: 5,
       completedBy: ["charlie"]
     },
+    {
+        id: "serial",
+        title: "Serial Monitor Basics",
+        points: 5,
+        completedBy: []
+    },
+    {
+        id: "setup-vs-loop",
+        title: "Setup vs Loop",
+        points: 5,
+        completedBy: []
+    },
+    {
+        id: "infinite-serial",
+        title: "Infinite Serial Loop",
+        points: 5,
+        completedBy: []
+    },
+    {
+        id: "delay",
+        title: "Understanding delay()",
+        points: 5,
+        completedBy: []
+    },
+  
 
   ];
   

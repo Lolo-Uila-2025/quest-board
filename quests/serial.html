@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Serial Monitor Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Serial Monitor Basics</h1>
+
+  <p>In this quest, you’ll learn how to communicate with your Arduino using the Serial Monitor. This is how your programs will “talk” to you!</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How to start serial communication</li>
+    <li>How to print text or numbers to the Serial Monitor</li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Inside the <code>setup()</code> function, start serial communication with this line:
+      <pre><code>Serial.begin(9600);</code></pre>
+      <small>This sets the communication speed. Stick with 9600 for now.</small>
+    </li>
+    <li>Use <code>Serial.println()</code> to print messages. Example:
+      <pre><code>Serial.println("Hello from Arduino!");</code></pre>
+    </li>
+    <li>Upload the code to your Arduino.</li>
+    <li>Click the Serial Monitor button (top-right magnifying glass in the IDE) to see your message appear.</li>
+    <li>Add at least two more `Serial.println()` lines with different messages or numbers. Get creative!</li>
+  </ol>
+
+  <p>Once you’ve verified the output appears in the Serial Monitor, show your teacher to claim <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <!-- Load shared data, then build the two lists -->
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "serial");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

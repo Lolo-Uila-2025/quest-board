@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Infinite Serial Loop Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Infinite Serial Loop</h1>
+
+  <p>This quest challenges you to create an **infinite loop** that continuously prints to the Serial Monitor. You'll see how the <code>loop()</code> function runs over and over again forever.</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How <code>loop()</code> works</li>
+    <li>How to repeatedly output messages using <code>Serial.println()</code></li>
+    <li>How to slow down an infinite loop with <code>delay()</code></li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and create a new sketch.</li>
+    <li>Inside <code>setup()</code>, begin serial communication:
+      <pre><code>Serial.begin(9600);</code></pre>
+    </li>
+    <li>Inside <code>loop()</code>, print a message continuously:
+      <pre><code>Serial.println("I'm stuck in a loop!");</code></pre>
+    </li>
+    <li>Upload your sketch and open the Serial Monitor. You should see your message appearing over and over.</li>
+  </ol>
+
+  <p>Once your infinite loop works, show your Serial Monitor to the teacher to earn <strong>+5 points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "infinite-serial");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Setup vs Loop Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Setup vs Loop</h1>
+
+  <p>This quest challenges you to demonstrate your understanding of how an Arduino sketch runs. You’ll explain the difference between <code>setup()</code> and <code>loop()</code> — two of the most important functions in the Arduino IDE.</p>
+
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>What <code>setup()</code> is used for</li>
+    <li>What <code>loop()</code> is used for</li>
+    <li>Why the Arduino needs both</li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Open the Arduino IDE and look at the default code:
+      <pre><code>void setup() {
+  // runs once
+}
+
+void loop() {
+  // runs over and over
+}</code></pre>
+    </li>
+    <li>Think about how the Arduino behaves when you upload a sketch. What happens first? What keeps repeating?</li>
+    <li>Prepare a short explanation of:
+      <ul>
+        <li>What <code>setup()</code> does</li>
+        <li>What <code>loop()</code> does</li>
+        <li>One example of something that might go in each function</li>
+      </ul>
+    </li>
+    <li>Explain your answer to a Kumu when you’re ready!</li>
+  </ol>
+
+  <p>If your explanation is clear and correct, you’ll earn <strong>+5 points</strong> for this quest!</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "setup-vs-loop");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);
+      } else {
+        todoUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
