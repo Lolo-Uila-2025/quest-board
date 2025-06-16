@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Classroom Cleanup Quest</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <!-- Back-to-board link -->
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Classroom Cleanup</h1>
+
+  <p>Help tidy the room at the end of the day:</p>
+  <ul>
+    <li>Wipe the whiteboards</li>
+    <li>Re-arrange chairs and desks</li>
+    <li>Collect and throw away trash</li>
+  </ul>
+  <p>Show the teacher when finished to claim <strong>+10&nbsp;points</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <!-- Load shared data, then build the two lists -->
+  <script src="../data.js"></script>
+  <script>
+    // 1. Grab the quest we’re on
+    const quest = quests.find(q => q.id === "cleanup");
+    const finished = new Set(quest.completedBy);
+
+    // 2. Reference our two <ul> elements
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    // 3. Populate lists
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (finished.has(s.id)) {
+        doneUL.appendChild(li);   // ✅ already done
+      } else {
+        todoUL.appendChild(li);   // ⏳ still pending
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoreboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Student Scoreboard</h1>
+  <table id="scoreboard">
+    <thead>
+      <tr><th>Name</th><th>Points</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <a href="quests.html">View Quest Board</a>
+
+  <script src="data.js"></script>
+  <script>
+    const tbody = document.querySelector("#scoreboard tbody");
+    students.forEach(s => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${s.name}</td><td>${s.points}</td>`;
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quest Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Back-to-scoreboard link -->
+  <p><a href="index.html" class="back-link">← Back to Scoreboard</a></p>
+
+  <h1>Quest Board</h1>
+  <ul id="quest-list"></ul>
+
+  <script src="data.js"></script>
+  <script>
+    const list = document.getElementById("quest-list");
+    quests.forEach(q => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="quests/${q.id}.html">${q.title} (+${q.points} pts)</a>`;
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>
