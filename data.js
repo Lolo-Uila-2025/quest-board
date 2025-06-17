@@ -2,15 +2,16 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "alice",   name: "Alice",   points: 0 },
-    { id: "bob",     name: "Bob",     points: 0 },
-    { id: "charlie", name: "Charlie", points: 0 },
-    { id: "diana",   name: "Diana",   points: 0 },
-    { id: "ethan",   name: "Ethan",   points: 0 },
-    { id: "fiona",   name: "Fiona",   points: 0 },
-    { id: "george",  name: "George",  points: 0 },
-    { id: "hannah",  name: "Hannah",  points: 0 }
+    { id: "alice",   name: "Alice",   points: 0, spent: 0 },
+    { id: "bob",     name: "Bob",     points: 0, spent: 0 },
+    { id: "charlie", name: "Charlie", points: 0, spent: 0 },
+    { id: "diana",   name: "Diana",   points: 0, spent: 0 },
+    { id: "ethan",   name: "Ethan",   points: 0, spent: 0 },
+    { id: "fiona",   name: "Fiona",   points: 0, spent: 0 },
+    { id: "george",  name: "George",  points: 0, spent: 0 },
+    { id: "hannah",  name: "Hannah",  points: 0, spent: 0 }
   ];
+  
   
   // ---------------------------------------------------------------------
   //  Quest catalogue – each quest now tracks who has finished it
@@ -24,7 +25,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "serial",
@@ -32,7 +33,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "setup-vs-loop",
@@ -40,7 +41,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "infinite-serial",
@@ -48,7 +49,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "delay",
@@ -56,7 +57,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "if-statements",
@@ -64,7 +65,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "if-else-tree",
@@ -72,7 +73,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "while-loops",
@@ -80,7 +81,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "for-loops",
@@ -88,7 +89,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["alice"]
     },
     {
       id: "functions",

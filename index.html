@@ -42,42 +42,50 @@
   </div>
 
   <script src="data.js"></script>
-  <script>
-    const tbody = document.querySelector("#scoreboard tbody");
-  
-    // 1. Build a map of student scores
-    const scoreMap = {};
-    students.forEach(s => scoreMap[s.id] = 0);
-  
-    quests.forEach(q => {
-      q.completedBy.forEach(studentId => {
-        if (scoreMap.hasOwnProperty(studentId)) {
-          scoreMap[studentId] += q.points;
-        }
-      });
+<script>
+  const tbody = document.querySelector("#scoreboard tbody");
+
+  // 1. Build a map of earned scores
+  const scoreMap = {};
+  students.forEach(s => scoreMap[s.id] = 0);
+
+  quests.forEach(q => {
+    q.completedBy.forEach(studentId => {
+      if (scoreMap.hasOwnProperty(studentId)) {
+        scoreMap[studentId] += q.points;
+      }
     });
-  
-    // 2. Combine student info with score for sorting
-    const rankedStudents = students.map(s => ({
+  });
+
+  // 2. Combine student info, subtract spent points
+  const rankedStudents = students.map(s => {
+    const earned = scoreMap[s.id];
+    const spent = s.spent || 0;
+    const net = earned - spent;
+    return {
       name: s.name,
       id: s.id,
-      score: scoreMap[s.id]
-    }));
-  
-    // 3. Sort by score (descending)
-    rankedStudents.sort((a, b) => b.score - a.score);
-  
-    // 4. Define medal emojis
-    const medals = ["🥇", "🥈", "🥉"];
-  
-    // 5. Display table rows
-    rankedStudents.forEach((s, i) => {
-      const row = document.createElement("tr");
-      const medal = medals[i] || "";
-      row.innerHTML = `<td>${medal} ${s.name}</td><td>${s.score}</td>`;
-      tbody.appendChild(row);
-    });
-  </script>
+      earned,
+      spent,
+      net
+    };
+  });
+
+  // 3. Sort by net points
+  rankedStudents.sort((a, b) => b.net - a.net);
+
+  // 4. Define medal emojis
+  const medals = ["🥇", "🥈", "🥉"];
+
+  // 5. Display table rows
+  rankedStudents.forEach((s, i) => {
+    const row = document.createElement("tr");
+    const medal = medals[i] || "";
+    row.innerHTML = `<td>${medal} ${s.name}</td><td>${s.net} pts</td>`;
+    tbody.appendChild(row);
+  });
+</script>
+
   
 </body>
 </html>
