@@ -62,12 +62,14 @@
   const rankedStudents = students.map(s => {
     const earned = scoreMap[s.id];
     const spent = s.spent || 0;
-    const net = earned - spent;
+    const bonus = s.points || 0;
+    const net = earned - spent + bonus;
     return {
       name: s.name,
       id: s.id,
       earned,
       spent,
+      bonus,
       net
     };
   });
