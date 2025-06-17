@@ -3,7 +3,6 @@
 // ---------------------------------------------------------------------
 const students = [
     { id: "elias",   name: "Elias",   points: 0, spent: 0 },
-    { id: "joshua",  name: "Joshua",  points: 0, spent: 0 },
     { id: "ili",     name: "Ili",     points: 0, spent: 0 },
     { id: "lehua",   name: "Lehua",   points: 0, spent: 0 },
     { id: "kahiau",  name: "Kahiau",  points: 0, spent: 0 },
@@ -33,7 +32,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["lehua", "elias", "jonnie", "breezy", "kahiau", "ku", "ili"]
     },
     {
       id: "setup-vs-loop",
