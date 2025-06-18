@@ -122,7 +122,7 @@ const students = [
       points: 10,
       day: 1,
       type: "challenge",
-      completedBy: []
+      completedBy: ["elias"]
     },
     {
       id: "double-trouble",
