@@ -227,7 +227,7 @@ const students = [
       day: 2,
       type: "story",
       completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
-      completedBonusBy: ["jonnie", "ku", "elias", "kahiau", "elias"]
+      completedBonusBy: ["jonnie", "ku", "elias", "kahiau"]
     },
     {
       id: "rgb-led",
