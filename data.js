@@ -24,7 +24,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias"]
+      completedBy: ["ku", "elias", "jonnie"]
     },
     {
       id: "serial",
@@ -56,7 +56,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias", "kahiau", "ili", "lehua", "breezy"]
+      completedBy: ["ku", "elias", "kahiau", "ili", "lehua", "breezy", "jonnie"]
     },
     {
       id: "if-statements",
@@ -96,7 +96,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["breezy", "ili"]
+      completedBy: ["breezy", "ili", "ku"]
     },
     {
       id: "function-parameters",
@@ -154,7 +154,7 @@ const students = [
       points: 10,
       day: 1,
       type: "challenge",
-      completedBy: []
+      completedBy: ["elias"]
     },
     {
       id: "is-even",
