@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quest: Button Input</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+<h1>Quest: Using a Button as Input</h1>
+
+<p>In this quest, you’ll learn how to connect a push button to your Arduino and detect when it's pressed using the <code>INPUT_PULLUP</code> setting.</p>
+
+<h2>Required Components</h2>
+<ul>
+    <li>1 x Arduino board</li>
+    <li>1 x Push button</li>
+    <li>Jumper wires</li>
+</ul>
+
+<h2>Wiring Instructions</h2>
+<ol>
+    <li>Connect one leg of the button to <strong>GND</strong>.</li>
+    <li>Connect the other leg to <strong>pin 2</strong> on the Arduino.</li>
+    <li>No resistor needed! We’ll use <code>INPUT_PULLUP</code> in code.</li>
+</ol>
+
+<h2>Code Setup</h2>
+  <p>The goal of this program is to print a message every time the button is pressed.</p>
+
+  <h3>1. Start Serial Communication</h3>
+  <p>Inside <code>setup()</code>, begin the Serial Monitor so you can print messages to your screen:</p>
+  <pre><code>Serial.begin(9600);</code></pre>
+
+  <h3>2. Configure the Button Pin</h3>
+  <p>Set pin 2 to use <code>INPUT_PULLUP</code> mode:</p>
+  <pre><code>pinMode(2, INPUT_PULLUP);</code></pre>
+  <p>This keeps the pin <strong>HIGH</strong> by default. When the button is pressed, it gets pulled <strong>LOW</strong>, and we’ll check for that.</p>
+
+  <h3>3. Detect the Press in loop()</h3>
+  <p>Read the pin using:</p>
+  <pre><code>int state = digitalRead(2);</code></pre>
+  <p>If <code>state</code> equals <code>LOW</code>, it means the button is pressed. Use an if-statement to print a message:</p>
+  <pre><code>if (state == LOW) {
+  Serial.println("Button Pressed!");
+}</code></pre>
+
+  <h3>4. Add a Delay</h3>
+  <p>Finally, slow it down a bit so it doesn’t spam the Serial Monitor:</p>
+  <pre><code>delay(100);</code></pre>
+
+  <p><strong>Remember:</strong> When the button is pressed, the circuit is completed and pin 2 reads <code>LOW</code>!</p>
+
+
+  <p>Show your working circuit and Serial Monitor output to the teacher when you press the button to earn <strong>+10 points</strong>!</p>
+
+  <h2>Bonus Points</h2>
+
+  <p>Instead of printing to the Serial Monitor, make this button turn on an LED! The LED must not connect to the button, but to a pin on the Arduino instead. Hint: Requires an if statement, an else statement, and digitalOutput(...). Complete this bonus challenge for <strong>+5 points!</strong></p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+
+  <h3>🟩 Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "button-input");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []); // Optional field
+
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

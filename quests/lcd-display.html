@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: LCD Display</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    figure.illustration {
+      margin: 16px auto;
+      text-align: left;
+    }
+    figure.illustration img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figure.illustration figcaption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Story Quest: LCD Display</h1>
+
+  <p>
+    In this quest, you’ll connect a 16x2 LCD screen to your Arduino and display messages using code.
+  </p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>16x2 LCD display (with HD44780 chip)</li>
+    <li>Potentiometer (for brightness)</li>
+    <li>Breadboard & jumper wires</li>
+  </ul>
+
+  <figure class="illustration">
+    <img src="../images/lcd.png" alt="Wiring example of LCD to Arduino">
+    <figcaption>The LCD display</figcaption>
+  </figure>
+
+  <h2>Wiring Instructions</h2>
+  <p>Use these pin connections for the LCD:</p>
+  <ul>
+    <li>RS → <strong>pin 7</strong></li>
+    <li>E → <strong>pin 8</strong></li>
+    <li>D4 → <strong>A0</strong></li>
+    <li>D5 → <strong>A1</strong></li>
+    <li>D6 → <strong>A2</strong></li>
+    <li>D7 → <strong>A3</strong></li>
+  </ul>
+
+  <p>
+    The LCD needs a potentiometer connected to adjust the screen contrast:
+    connect the middle leg of the potentiometer to <code>V0</code> on the LCD,
+    one leg to <code>GND</code> and the other to <code>5V</code>.
+  </p>
+
+  
+
+  <h2>Why These Pins?</h2>
+  <p>
+    You can use <strong>almost any digital or analog-capable pins</strong> for LCD connections.
+    The only thing that matters is that the numbers you use in your code match the wiring you choose.
+    For this quest, we picked pins 7, 8, and A0–A3 for clarity and space.
+  </p>
+
+  <h2>Code Setup</h2>
+<p>You’ll need to include the LiquidCrystal library to control the screen.</p>
+
+<p>
+  🔗 If it's missing, you can <a href="../libraries\LiquidCrystal.zip" target="_blank">
+  download the LiquidCrystal library here</a> (ZIP). Then go to Arduino IDE → <strong>Sketch → Include Library → Add .ZIP Library</strong> to install it.
+</p>
+
+  <h3>1. Include the Library and Setup Pins</h3>
+  <pre><code>
+#include &lt;LiquidCrystal.h&gt;
+
+// RS, E, D4, D5, D6, D7
+LiquidCrystal lcd(7, 8, A0, A1, A2, A3);
+  </code></pre>
+
+  <h3>2. Start the LCD</h3>
+  <pre><code>
+void setup() {
+  lcd.begin(16, 2);  // 16 characters, 2 lines
+  lcd.print("Hello, world!");
+}
+  </code></pre>
+
+  <h3>3. Clear the Screen</h3>
+  <pre><code>
+lcd.clear();  // Clears everything
+  </code></pre>
+
+  <h3>4. Move to a Specific Line</h3>
+  <pre><code>
+lcd.setCursor(0, 1);  // column 0, row 1
+lcd.print("Line 2 text");
+  </code></pre>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    Display two different lines of text on the screen using <code>lcd.setCursor()</code> and <code>lcd.print()</code>.
+    Show your display to earn <strong>+20 points</strong>!
+  </p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "lcd-display");
+    const done = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

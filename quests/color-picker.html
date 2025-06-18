@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boss Quest: Color Picker</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Boss Fight: Color Picker</h1>
+
+  <p>This is it — a real test of your input skills! Combine a joystick and a potentiometer to control an RGB LED’s color in real time.</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>RGB LED (common cathode)</li>
+    <li>Joystick module</li>
+    <li>Potentiometer</li>
+    <li>3 x 220Ω resistors</li>
+    <li>Breadboard & jumper wires</li>
+  </ul>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Joystick:
+      <ul>
+        <li>VRx (X-axis) → A0</li>
+        <li>VRy (Y-axis) → A1</li>
+        <li>GND → GND</li>
+        <li>VCC → 5V</li>
+      </ul>
+    </li>
+    <li>Potentiometer:
+      <ul>
+        <li>Middle pin → A2</li>
+        <li>Side pins → 5V and GND</li>
+      </ul>
+    </li>
+    <li>RGB LED:
+      <ul>
+        <li>Common cathode leg → GND</li>
+        <li>Red → resistor → pin 9</li>
+        <li>Green → resistor → pin 10</li>
+        <li>Blue → resistor → pin 11</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>Code Overview</h2>
+  <p>Your goal is to map joystick X/Y and potentiometer values to RGB values. For example:</p>
+
+  <ul>
+    <li><strong>X-axis (A0)</strong>: controls Red</li>
+    <li><strong>Y-axis (A1)</strong>: controls Green</li>
+    <li><strong>Potentiometer (A2)</strong>: controls Blue</li>
+  </ul>
+
+  <p>The problem is that Analog Input gives us a range from 0-1023, while Analog Write only supports 0-255. Fortunately, there exists a function in C++ called <strong>map()</strong> that can scale down the 0-1023 to 0-255 instead. <strong>map()</strong> takes 5 parameters, the first being the number to map, the next two being the original range (0-1023), and the last two being the new range (0, 255). Overall, you'll want to use something like this:</p>
+
+  <pre>
+    <code>int red = map(analogRead(A0), 0, 1023, 0, 255);</code>
+  </pre>
+
+  <p>Make variables for blue and green as well! Set the value of analogWrite(...) to the variable you just made and see if it works.</p>
+
+
+
+  <h2>🎯 How to Complete This Quest</h2>
+  <p>Show your working setup where you can mix colors using the joystick + potentiometer to earn <strong>+20 points</strong>!</p>
+  <hr />
+
+  <h2>Who’s already defeated this boss?</h2>
+
+
+  <h3>🏆 Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "color-picker");
+    const baseDone  = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+
+    const bonusUL   = document.getElementById("completed-bonus-list");
+    const baseUL    = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

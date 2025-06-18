@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: Joystick Input</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Story Quest: Reading a Joystick Module</h1>
+
+  <p>
+    Many game controllers use a 2-axis joystick. In this quest you’ll wire a
+    joystick to your Arduino and read its X and Y positions with
+    <code>analogRead()</code>.
+  </p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>Joystick module (with VRx, VRy, VCC, GND pins)</li>
+    <li>Breadboard & jumper wires</li>
+  </ul>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Connect the joystick’s <strong>VCC</strong> pin to <strong>5 V</strong>.</li>
+    <li>Connect <strong>GND</strong> to Arduino <strong>GND</strong>.</li>
+    <li>Connect <strong>VRx</strong> (horizontal axis) to <strong>A0</strong>.</li>
+    <li>Connect <strong>VRy</strong> (vertical axis) to <strong>A1</strong>.</li>
+    <li>(Optional) The SW pin is the built-in button—leave it unconnected for now.</li>
+  </ol>
+
+  <h2>Code Setup</h2>
+  <p>The goal is to print the joystick’s X and Y values (each 0–1023) to the Serial Monitor.</p>
+
+  <h3>1. Start Serial Communication</h3>
+  <pre><code>Serial.begin(9600);</code></pre>
+
+  <h3>2. Read the Two Analog Pins</h3>
+  <pre><code>
+int xVal = analogRead(A0);   // horizontal
+int yVal = analogRead(A1);   // vertical
+  </code></pre>
+
+  <h3>3. Print the Readings Together</h3>
+  <pre><code>Serial.print("X: ");
+Serial.println(xVal);
+Serial.print("Y: ");
+Serial.println(yVal);</code></pre>
+
+  <h3>4. Slow It Down</h3>
+  <pre><code>delay(100);  // about 10 updates per second</code></pre>
+
+  <h2>How to Complete This Quest</h2>
+  <p>Move the joystick and show the changing X/Y numbers in the Serial Monitor to earn <strong>+10 points</strong>!</p>
+
+  <h2>Bonus Points</h2>
+  <p>
+    Wire up two LEDs to two different analog pins (~). Map the X direction to the brightness of one, and the Y direction to the other using analogWrite(...) to earn <strong>+10 points!</strong>.
+  </p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+
+  <h3>🟩 Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "joystick-input");
+    const baseDone  = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+
+    const bonusUL   = document.getElementById("completed-bonus-list");
+    const baseUL    = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

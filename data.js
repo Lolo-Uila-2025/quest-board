@@ -17,13 +17,13 @@ const students = [
   //  `completedBy` holds an array of student **ids** (not names)
   // ---------------------------------------------------------------------
   const quests = [
-    // ─── Missions ─────────────────────────────────────────────
+    // ─── Side Missions ─────────────────────────────────────────────
     {
       id: "variables",
       title: "Variable Basics",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku", "elias", "jonnie", "breezy", "ili"] 
     },
     {
@@ -31,7 +31,7 @@ const students = [
       title: "Serial Monitor Basics",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["lehua", "elias", "jonnie", "breezy", "kahiau", "ku", "ili"]
     },
     {
@@ -39,7 +39,7 @@ const students = [
       title: "Setup vs Loop",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["elias", "ku", "kahiau", "jonnie"]
     },
     {
@@ -47,7 +47,7 @@ const students = [
       title: "Infinite Serial Loop",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku", "kahiau", "elias", "ili", "lehua", "breezy", "jonnie"]
     },
     {
@@ -55,7 +55,7 @@ const students = [
       title: "Understanding delay()",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku", "elias", "kahiau", "ili", "lehua", "breezy", "jonnie"]
     },
     {
@@ -63,7 +63,7 @@ const students = [
       title: "Learning If Statements",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku", "elias", "lehua", "ili", "breezy", "jonnie"]
     },
     {
@@ -71,7 +71,7 @@ const students = [
       title: "If-Else Trees",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku", "elias"]
     },
     {
@@ -79,7 +79,7 @@ const students = [
       title: "Learning While Loops",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["elias", "ku"]
     },
     {
@@ -87,7 +87,7 @@ const students = [
       title: "Learning For Loops",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku"]
     },
     {
@@ -95,7 +95,7 @@ const students = [
       title: "Writing Your Own Functions",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["breezy", "ili", "ku"]
     },
     {
@@ -103,7 +103,7 @@ const students = [
       title: "Function Parameters",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku"]
     },
     {
@@ -111,7 +111,7 @@ const students = [
       title: "Function Return Values",
       points: 5,
       day: 1,
-      type: "mission",
+      type: "side",
       completedBy: ["ku"]
     },
   
@@ -179,6 +179,93 @@ const students = [
       day: 1,
       type: "challenge",
       completedBy: []
-    }
+    },
+
+    // ─── Story Quests ───────────────────────────────────────────
+    {
+      id: "button-input",
+      title: "Connect a button to the Arduino!",
+      points: 10,
+      bonus: 5,
+      day: 2,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "potentiometer-input",
+      title: "Connect a potentiometer to the Arduino!",
+      points: 10,
+      bonus: 10,
+      day: 2,
+      type: "story",     
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "joystick-input",
+      title: "Connect a joystick to the Arduino!",
+      points: 10,
+      bonus: 10,
+      day: 2,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "rgb-led",
+      title: "RGB LED Colors",
+      points: 10,
+      bonus: 10,
+      day: 2,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "color-picker",
+      title: "Color Picker",
+      points: 20,
+      day: 2,
+      type: "boss",
+      completedBy: [],
+    },
+    {
+      id: "buzzer",
+      title: "Passive Buzzer",
+      points: 5,
+      bonus: 5,
+      day: 2,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "ultrasonic-sensor",
+      title: "Ultrasonic Sensor",
+      points: 10,
+      bonus: 10,
+      day: 2,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "lcd-display",
+      title: "LCD Display",
+      points: 20,
+      day: 2,
+      type: "story",
+      completedBy: [],
+    },
+    {
+      id: "adventure-game",
+      title: "Choose Your Own Adventure Game", 
+      points: 50,
+      day: 2,
+      type: "boss",
+      completedBy: [],
+    },
+    
   ];
   

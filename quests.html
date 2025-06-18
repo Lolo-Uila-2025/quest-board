@@ -5,30 +5,31 @@
   <title>Quest Board</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* ─── Layout ───────────────────────────────────────────── */
     .quest-container {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
     }
-
-    .column {
+    .left-col {            /* Story + Bosses */
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
+    }
+    .right-col {           /* Side (top) + Challenge (bottom) */
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
+    /* ─── Common Styles ───────────────────────────────────── */
     h2 {
       border-bottom: 2px solid #ccc;
+      padding-bottom: 4px;
     }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 0.5em;
-    }
-
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 0.5em; }
     .quest-link {
       display: block;
       padding: 0.5em;
@@ -37,12 +38,25 @@
       background-color: #f5f5f5;
       border-left: 4px solid transparent;
     }
+    .quest-link:hover { background-color: #e0e0e0; }
 
-    .quest-link:hover {
-      background-color: #e0e0e0;
+    /* ─── Color Coding ────────────────────────────────────── */
+    .story .quest-link {   /* blue */
+      border-left-color: #1976d2;
+      background-color: #f3f9ff;
+      color: #0d47a1;
     }
-
-    .challenge .quest-link {
+    .boss .quest-link {    /* purple */
+      border-left-color: #9c27b0;
+      background-color: #faf5ff;
+      color: #6a1b9a;
+    }
+    .side .quest-link {    /* green */
+      border-left-color: #4caf50;
+      background-color: #f0fff4;
+      color: #2e7d32;
+    }
+    .challenge .quest-link { /* red */
       border-left-color: #e53935;
       background-color: #fff5f5;
       color: #b71c1c;
@@ -60,30 +74,44 @@
   <h1>Quest Board</h1>
 
   <div class="quest-container">
-    <div class="column" id="missions">
-      <h2>Missions</h2>
-      <ul></ul>
+    <!-- Left: Story + Boss -->
+    <div class="left-col">
+      <h2>📖 Story Quests & Bosses</h2>
+      <ul id="story-list"></ul>
     </div>
-    <div class="column" id="challenges">
-      <h2>Challenges</h2>
-      <ul></ul>
+
+    <!-- Right column: stacked -->
+    <div class="right-col">
+      <section>
+        <h2>✅ Side Missions</h2>
+        <ul id="side-list"></ul>
+      </section>
+      <section>
+        <h2>🧩 Challenges</h2>
+        <ul id="challenge-list"></ul>
+      </section>
     </div>
   </div>
 
   <script src="data.js"></script>
   <script>
-    const missionList = document.querySelector("#missions ul");
-    const challengeList = document.querySelector("#challenges ul");
+    // Map columns
+    const lists = {
+      story: document.getElementById("story-list"),
+      side:  document.getElementById("side-list"),
+      challenge: document.getElementById("challenge-list")
+      // boss will reuse story-list
+    };
 
-    // Sort quests by day number
+    // Sort by day for consistent order
     quests.sort((a, b) => a.day - b.day);
 
     quests.forEach(q => {
-      const li = document.createElement("li");
-      li.className = q.type;
+      const li   = document.createElement("li");
+      li.className = q.type;          // adds .story / .side / .challenge / .boss
 
       const link = document.createElement("a");
-      link.href = `quests/${q.id}.html`;
+      link.href  = `quests/${q.id}.html`;
       link.className = "quest-link";
       link.textContent = `${q.title} (+${q.points} pts)`;
 
@@ -94,7 +122,14 @@
       link.appendChild(day);
       li.appendChild(link);
 
-      (q.type === "challenge" ? challengeList : missionList).appendChild(li);
+      // Determine destination list
+      if (q.type === "boss" || q.type === "story") {
+        lists.story.appendChild(li);     // bosses & stories together
+      } else if (q.type === "side") {
+        lists.side.appendChild(li);
+      } else if (q.type === "challenge") {
+        lists.challenge.appendChild(li);
+      }
     });
   </script>
 </body>

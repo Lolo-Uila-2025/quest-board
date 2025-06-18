@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boss Quest: Choose Your Own Adventure Game</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">&larr; Back to Quest Board</a>
+
+  <h1>Boss Quest: Choose Your Own Adventure Game</h1>
+
+  <p>In this boss-level quest, you'll learn how to build a simple text-based adventure game using just three buttons and the Serial Monitor. Players will press buttons to make choices, and your Arduino will respond by jumping to different functions that represent each part of the story.</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>3 push buttons</li>
+    <li>Jumper wires</li>
+    <li>Breadboard</li>
+  </ul>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Connect one leg of each button to <strong>GND</strong>.</li>
+    <li>Connect the other leg of the buttons to digital pins <strong>2</strong>, <strong>3</strong>, and <strong>4</strong>.</li>
+  </ol>
+
+  <h2>Code Structure</h2>
+  <p>You’ll be making a function for each point in the story. When the user presses a button, you’ll call a new function to continue the story based on that choice.</p>
+
+  <h3>Example Setup</h3>
+  <pre><code>
+void setup() {
+  Serial.begin(9600);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  startScene();
+}
+
+void loop() {
+  // Empty! All logic is handled inside each scene function.
+}
+  </code></pre>
+
+  <h3>Scene Function Example</h3>
+  <pre><code>
+void startScene() {
+  Serial.println("You wake up in a dark cave. Do you:");
+  Serial.println("1: Go left");
+  Serial.println("2: Go right");
+  Serial.println("3: Stay put");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      leftPath();
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      rightPath();
+      break;
+    }
+    if (digitalRead(4) == LOW) {
+      stayPut();
+      break;
+    }
+  }
+}
+
+void leftPath() {
+  Serial.println("You walk left and find a treasure chest!");
+  // Add more choices here
+}
+
+void rightPath() {
+  Serial.println("You walk right and fall into a pit. Game over.");
+}
+
+void stayPut() {
+  Serial.println("You wait... and something approaches.");
+  // More choices can go here too
+}
+  </code></pre>
+
+  <h2>✨ Tips for Expanding Your Game</h2>
+  <ul>
+    <li>Use <code>delay(500)</code> inside your button checks to avoid repeated presses.</li>
+    <li>Use clear function names that match the story (e.g., <code>dragonEncounter()</code>).</li>
+    <li>Think about your story tree: each button can lead to another scene with 3 more choices!</li>
+  </ul>
+
+  <h2>✨ Goal</h2>
+  <p>Make a simple 3-scene story where each button press leads to a different function. Your story should have at least one ending. Show your story working in the Serial Monitor to earn <strong>+50 points</strong>!</p>
+
+  <hr />
+
+  <h2>Who's already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "adventure-game");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+
+    students.forEach(s => {
+      if (finished.has(s.id)) {
+        const li = document.createElement("li");
+        li.textContent = s.name;
+        doneUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

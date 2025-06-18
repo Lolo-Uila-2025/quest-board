@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quest: Potentiometer Input</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Optional image styling */
+    figure.illustration {
+      margin: 16px auto;
+      text-align: left;
+    }
+    figure.illustration img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figure.illustration figcaption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Quest: Reading a Potentiometer</h1>
+
+  <p>In this quest you’ll learn how to hook up a potentiometer (knob) to your Arduino and read its position with <code>analogRead()</code>.</p>
+
+  
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>Potentiometer</li>
+    <li>Breadboard &amp; jumper wires</li>
+  </ul>
+
+  <!-- ✨ Image slot (optional) -->
+  <figure class="illustration">
+    <img src="../images/potentiometer.png" alt="Potentiometer connected to Arduino">
+    <figcaption>Potentiometer</figcaption>
+  </figure>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Place the potentiometer on the bridge of the breadboard, the one pin side facing up.</li>
+    <li>Connect the one pin of the potentiometer to <strong>A0</strong> on the Arduino.</li>
+    <li>Connect one bottom pin to <strong>5&nbsp;V</strong>.</li>
+    <li>Connect the other bottom pin to <strong>GND</strong>.</li>
+  </ol>
+
+
+  <h2>Code Setup</h2>
+  <p>The goal is to print the knob’s position (0–1023) to the Serial Monitor.</p>
+
+  <h3>1. Start Serial Communication</h3>
+  <pre><code>Serial.begin(9600);</code></pre>
+
+  <h3>2. Read the Analog Pin</h3>
+  <p>Inside <code>loop()</code>, ask Arduino for the voltage level on A0:</p>
+  <pre><code>int reading = analogRead(A0);</code></pre>
+  <p><code>analogRead()</code> converts the knob’s voltage into a number from 0 (0&nbsp;V) to 1023 (5&nbsp;V).</p>
+
+  <h3>3. Print the Reading</h3>
+  <pre><code>Serial.println(reading);</code></pre>
+
+  <h3>4. Slow It Down</h3>
+  <pre><code>delay(100);  // update ~10× per second</code></pre>
+
+  <h2>How to Complete This Quest</h2>
+  <p>Turn the knob and show your changing values in the Serial Monitor. Earn <strong>+10&nbsp;points</strong>!</p>
+
+  <h2>Bonus Points</h2>
+  <p>Map the reading to control LED brightness with <code>analogWrite()</code> on a ~ pin. Show the fading LED for an extra <strong>+10&nbsp;points!</strong>.</p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+
+  <h3>🟩 Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "potentiometer-input");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []); // Optional field
+
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
