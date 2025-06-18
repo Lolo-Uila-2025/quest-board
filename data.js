@@ -206,7 +206,7 @@ const students = [
       bonus: 5,
       day: 2,
       type: "story",
-      completedBy: [],
+      completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
       completedBonusBy: []
     },
     {
