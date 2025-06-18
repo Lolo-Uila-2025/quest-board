@@ -40,7 +40,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["elias", "ku", "kahiau"]
+      completedBy: ["elias", "ku", "kahiau", "jonnie"]
     },
     {
       id: "infinite-serial",
@@ -48,7 +48,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "kahiau", "elias", "ili", "lehua", "breezy"]
+      completedBy: ["ku", "kahiau", "elias", "ili", "lehua", "breezy", "jonnie"]
     },
     {
       id: "delay",
@@ -64,7 +64,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias"]
+      completedBy: ["ku", "elias", "lehua", "ili", "breezy"]
     },
     {
       id: "if-else-tree",
@@ -72,7 +72,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku"]
+      completedBy: ["ku", "elias"]
     },
     {
       id: "while-loops",
@@ -80,7 +80,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["elias", "ku"]
     },
     {
       id: "for-loops",
@@ -88,7 +88,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku"]
     },
     {
       id: "functions",
@@ -96,7 +96,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["breezy", "ili"]
     },
     {
       id: "function-parameters",
