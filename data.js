@@ -56,7 +56,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias", "kahiau", "ili"]
+      completedBy: ["ku", "elias", "kahiau", "ili", "lehua", "breezy"]
     },
     {
       id: "if-statements",
@@ -72,7 +72,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku"]
     },
     {
       id: "while-loops",
