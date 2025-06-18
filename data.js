@@ -227,7 +227,7 @@ const students = [
       day: 2,
       type: "story",
       completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
-      completedBonusBy: ["jonnie", "ku", "elias", "kahiau"]
+      completedBonusBy: ["jonnie", "ku", "elias", "kahiau", "breezy"]
     },
     {
       id: "rgb-led",
@@ -236,8 +236,8 @@ const students = [
       bonus: 10,
       day: 2,
       type: "story",
-      completedBy: ["jonnie", "elias"],
-      completedBonusBy: []
+      completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
+      completedBonusBy: ["jonnie", "elias", "ku", "kahiau", "lehua", "breezy"]
     },
     {
       id: "color-picker",
@@ -245,7 +245,7 @@ const students = [
       points: 20,
       day: 2,
       type: "boss",
-      completedBy: [],
+      completedBy: ["ku", "elias", "kahiau", "breezy", "lehua", "jonnie", "ili"],
     },
     {
       id: "buzzer",
@@ -254,8 +254,8 @@ const students = [
       bonus: 5,
       day: 2,
       type: "story",
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["jonnie", "ku"],
+      completedBonusBy: ["jonnie", "ku"]
     },
     {
       id: "ultrasonic-sensor",
