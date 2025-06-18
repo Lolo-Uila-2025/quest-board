@@ -40,7 +40,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["elias", "ku", "kahiau"]
     },
     {
       id: "infinite-serial",
@@ -48,7 +48,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "kahiau"]
+      completedBy: ["ku", "kahiau", "elias"]
     },
     {
       id: "delay",
@@ -56,7 +56,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku"]
     },
     {
       id: "if-statements",
