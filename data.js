@@ -114,6 +114,14 @@ const students = [
       type: "side",
       completedBy: ["ku"]
     },
+    {
+      id: "mood-meter",
+      title: "Mood Meter",
+      points: 5,
+      day: 2,
+      type: "side",
+      completedBy: []
+    },
   
     // ─── Challenges ───────────────────────────────────────────
     {
@@ -180,6 +188,15 @@ const students = [
       type: "challenge",
       completedBy: []
     },
+    {
+      id: "password",
+      title: "Create a Password",
+      points: 15,
+      day: 2,
+      type: "challenge",
+      completedBy: []
+    },
+    
 
     // ─── Story Quests ───────────────────────────────────────────
     {

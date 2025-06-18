@@ -100,19 +100,21 @@ void stayPut() {
   <h3>✅ Completed</h3>
   <ul id="completed-list"></ul>
 
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
   <script src="../data.js"></script>
   <script>
     const quest = quests.find(q => q.id === "adventure-game");
-    const finished = new Set(quest.completedBy);
+    const done = new Set(quest.completedBy);
 
     const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
 
     students.forEach(s => {
-      if (finished.has(s.id)) {
-        const li = document.createElement("li");
-        li.textContent = s.name;
-        doneUL.appendChild(li);
-      }
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
     });
   </script>
 </body>
