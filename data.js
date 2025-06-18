@@ -24,7 +24,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias", "jonnie"]
+      completedBy: ["ku", "elias", "jonnie", "breezy", "ili"] 
     },
     {
       id: "serial",
@@ -64,7 +64,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias", "lehua", "ili", "breezy"]
+      completedBy: ["ku", "elias", "lehua", "ili", "breezy", "jonnie"]
     },
     {
       id: "if-else-tree",
@@ -104,7 +104,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku"]
     },
     {
       id: "function-return",
@@ -112,7 +112,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku"]
     },
   
     // ─── Challenges ───────────────────────────────────────────
@@ -130,7 +130,7 @@ const students = [
       points: 10,
       day: 1,
       type: "challenge",
-      completedBy: []
+      completedBy: ["elias"]
     },
     {
       id: "odd-squad",
@@ -138,7 +138,7 @@ const students = [
       points: 10,
       day: 1,
       type: "challenge",
-      completedBy: []
+      completedBy: ["elias"]
     },
     {
       id: "power-up",
@@ -146,7 +146,7 @@ const students = [
       points: 10,
       day: 1,
       type: "challenge",
-      completedBy: []
+      completedBy: ["elias"]
     },
     {
       id: "running-total",
