@@ -207,7 +207,7 @@ const students = [
       day: 2,
       type: "story",
       completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
-      completedBonusBy: []
+      completedBonusBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"]
     },
     {
       id: "potentiometer-input",
