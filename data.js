@@ -48,7 +48,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "kahiau", "elias", "ili"]
+      completedBy: ["ku", "kahiau", "elias", "ili", "lehua", "breezy"]
     },
     {
       id: "delay",
@@ -56,7 +56,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: ["ku", "elias"]
+      completedBy: ["ku", "elias", "kahiau", "ili"]
     },
     {
       id: "if-statements",
@@ -64,7 +64,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku", "elias"]
     },
     {
       id: "if-else-tree",
