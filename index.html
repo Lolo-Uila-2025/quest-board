@@ -94,10 +94,35 @@
   </script>
   
   <!-- Existing message-board script stays the same -->
-  <script src="messages.js"></script>
-  <script>
-    // … (message-board code unchanged)
-  </script>
+  <script src="messages.js"></script>Add commentMore actions
+<script>
+  // Create the message board section
+  const messageSection = document.createElement("section");
+  messageSection.innerHTML = `<h2 style="margin-top: 40px;">📢 Message Board</h2>`;
+
+  const messageList = document.createElement("ul");
+  messageList.style.listStyle = "none";
+  messageList.style.padding = "0";
+
+  messages.forEach(msg => {
+    const li = document.createElement("li");
+    li.style.marginBottom = "20px";
+    li.style.borderLeft = "4px solid #0077cc";
+    li.style.paddingLeft = "10px";
+    
+    // Start building message HTML
+    let content = `<strong>${msg.from}:</strong> ${msg.text}`;
+    if (msg.image) {
+      content += `<div><img src="${msg.image}" alt="Message image from ${msg.from}" style="margin-top: 6px; max-width: 100%; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.1);"></div>`;
+    }
+
+    li.innerHTML = content;
+    messageList.appendChild(li);
+  });
+
+  messageSection.appendChild(messageList);
+  document.body.appendChild(messageSection);
+</script>
   
 
   
