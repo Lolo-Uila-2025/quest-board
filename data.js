@@ -24,7 +24,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku", "elias"]
     },
     {
       id: "serial",
@@ -48,7 +48,7 @@ const students = [
       points: 5,
       day: 1,
       type: "mission",
-      completedBy: []
+      completedBy: ["ku", "kahiau"]
     },
     {
       id: "delay",
