@@ -216,8 +216,8 @@ const students = [
       bonus: 10,
       day: 2,
       type: "story",     
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
+      completedBonusBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua"]
     },
     {
       id: "joystick-input",
@@ -226,7 +226,7 @@ const students = [
       bonus: 10,
       day: 2,
       type: "story",
-      completedBy: [],
+      completedBy: ["ku", "elias", "kahiau", "ili", "breezy", "lehua", "jonnie"],
       completedBonusBy: []
     },
     {
