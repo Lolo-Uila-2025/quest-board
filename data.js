@@ -4,11 +4,11 @@
 const students = [
     { id: "elias",   name: "Elias",   points: 5, spent: 0 },
     { id: "ili",     name: "Ili",     points: 3, spent: 60 },
-    { id: "lehua",   name: "Lehua",   points: 10, spent: 0 },
-    { id: "kahiau",  name: "Kahiau",  points: 4, spent: 10 },
+    { id: "lehua",   name: "Lehua",   points: 10, spent: 10 },
+    { id: "kahiau",  name: "Kahiau",  points: 4, spent: 110 },
     { id: "ku",      name: "Ku",      points: 15, spent: 0 },
     { id: "breezy",  name: "Breezy",  points: 4, spent: 60 },
-    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 0 }
+    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 10 }
   ];
   
   
@@ -254,8 +254,8 @@ const students = [
       bonus: 5,
       day: 2,
       type: "story",
-      completedBy: ["jonnie", "ku"],
-      completedBonusBy: ["jonnie", "ku"]
+      completedBy: ["jonnie", "ku", "elias"],
+      completedBonusBy: ["jonnie", "ku", "elias"]
     },
     {
       id: "ultrasonic-sensor",
@@ -264,8 +264,8 @@ const students = [
       bonus: 10,
       day: 2,
       type: "story",
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["ku", "elias", "breezy", "lehua", "jonnie", "ili", "kahiau"],
+      completedBonusBy: ["ku", "elias"]
     },
     {
       id: "lcd-display",
@@ -273,7 +273,7 @@ const students = [
       points: 20,
       day: 2,
       type: "story",
-      completedBy: [],
+      completedBy: ["ku", "elias", "breezy", "lehua", "jonnie", "ili", "kahiau"],
     },
     {
       id: "adventure-game",
