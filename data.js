@@ -4,7 +4,7 @@
 const students = [
     { id: "elias",   name: "Elias",   points: 5, spent: 150 },
     { id: "ili",     name: "Ili",     points: 3, spent: 60 },
-    { id: "lehua",   name: "Lehua",   points: 10, spent: 10 },
+    { id: "lehua",   name: "Lehua",   points: 10, spent: 70 },
     { id: "kahiau",  name: "Kahiau",  points: 4, spent: 110 },
     { id: "ku",      name: "Ku",      points: 15, spent: 0 },
     { id: "breezy",  name: "Breezy",  points: 4, spent: 60 },
@@ -320,7 +320,7 @@ const students = [
       points: 50,
       day: 3,
       type: "boss",
-      completedBy: ["lehua"],
+      completedBy: ["lehua", "elias"],
     },
     {
       id: "random-led",
