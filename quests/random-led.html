@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: Random LED Brightness</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Story Quest: Random LED Brightness</h1>
+
+  <p>In this quest, you'll make an LED light up with a random brightness every time you press a button. We'll use the <code>random()</code> function and analog output to make it happen!</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>1 push button</li>
+    <li>1 LED</li>
+    <li>1 resistor (220Ω)</li>
+    <li>Jumper wires & breadboard</li>
+  </ul>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Connect the LED's long leg to pin <strong>5</strong> through a 220Ω resistor.</li>
+    <li>Connect the short leg to <strong>negative</strong>.</li>
+    <li>Connect one leg of the button to <strong>negative</strong>.</li>
+    <li>Connect the other leg to pin <strong>2</strong>.</li>
+  </ol>
+
+  <h2>Step 1: Try the Random Function</h2>
+  <p>
+    In your code, first use <code>randomSeed(analogRead(A0))</code> in <code>setup()</code> to make sure your random numbers are different each time.
+  </p>
+  <p>
+    Then, use <code>random(0, 256)</code> to generate a number from 0 to 255. Print it with <code>Serial.println()</code> and check that a new number shows up every time you reupload the code!
+  </p>
+
+  <h2>Step 2: Use That Value!</h2>
+  <p>
+    Add an <code>if</code> statement in <code>loop()</code> that checks when the button is pressed. Inside that <code>if</code>, generate a random number, and use <code>analogWrite()</code> to set the LED brightness.
+  </p>
+  <p>
+    You can also keep the <code>Serial.println()</code> line to see what value you picked.
+  </p>
+
+  <h2>🎯 Goal</h2>
+  <p>Press the button and show that your LED changes brightness randomly every time. Earn <strong>+10 points</strong>!</p>
+
+  <h2>🔹 Bonus</h2>
+  <p>Show your brightness value in the Serial Monitor using <code>Serial.println()</code>. Earn <strong>+5 bonus points</strong>!</p>
+
+  <hr />
+  <h2>Who’s already completed this quest?</h2>
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+
+  <h3>🟩 Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "random-led");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

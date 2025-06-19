@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Movement Alarm</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Challenge: Movement Alarm</h1>
+
+  <p>Use an ultrasonic sensor to detect movement. When something comes closer than 20 cm, play an alarm that alternates between two tones five times.</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>HC‑SR04 ultrasonic sensor</li>
+    <li>Passive buzzer</li>
+  </ul>
+
+  <h2>Wiring</h2>
+  <ul>
+    <li>TRIG → 12</li>
+    <li>ECHO → 11</li>
+    <li>Buzzer → pin 8 + GND</li>
+  </ul>
+
+  <h2>Logic Hints</h2>
+  <ol>
+    <li>Use the <code>SR04</code> library or your own timing to get <code>distance</code>.</li>
+    <li>If <code>distance &lt; 20</code> cm, loop 5 times:
+      <pre><code>tone(8, 1000, 200);
+delay(250);
+tone(8, 600, 200);
+delay(250);</code></pre></li>
+  </ol>
+
+  <h2>🎯 Goal</h2>
+  <p>Show the alarm sounding exactly five high/low beeps when something moves close to earn <strong>+15 points</strong>!</p>
+
+  <hr />
+  <h2>Completion</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "movement-alarm");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

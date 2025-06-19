@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: Higher or Lower</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">&larr; Back to Quest Board</a>
+  <h1>Story Quest: Higher or Lower Game</h1>
+
+  <p>
+    In this quest, you'll make a simple number guessing game using a potentiometer and a button. 
+    The goal is to guess a secret number from 1 to 10, and get feedback in the Serial Monitor!
+  </p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>1 potentiometer</li>
+    <li>1 push button</li>
+    <li>Jumper wires & breadboard</li>
+  </ul>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Connect the middle pin of the potentiometer to <strong>A0</strong>.</li>
+    <li>Connect one side pin to <strong>5V</strong> and the other to <strong>GND</strong>.</li>
+    <li>Connect one leg of the button to <strong>GND</strong>.</li>
+    <li>Connect the other leg of the button to <strong>pin 2</strong>.</li>
+  </ol>
+
+  <h2>How It Works</h2>
+  <p>
+    Your code will use <code>analogRead()</code> to get a number from the potentiometer, then <code>map()</code> it from a range of 0&ndash;1023 to 1&ndash;10.
+    When the button is pressed, your code will compare the guess to a secret random number.
+  </p>
+
+  <h2>Code Snippet</h2>
+  <pre><code>int potPin = A0;
+int buttonPin = 2;
+int secretNumber;
+
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);
+  Serial.begin(9600);
+  randomSeed(analogRead(A1)); // Add another analog pin as seed
+  secretNumber = random(1, 11);
+}
+
+void loop() {
+  int raw = analogRead(potPin);
+  int guess = map(raw, 0, 1023, 1, 10);
+
+  Serial.print("Guess: ");
+  Serial.println(guess);
+
+  if (digitalRead(buttonPin) == LOW) {
+    delay(250);
+    if (guess < secretNumber) {
+      Serial.println("Too low!");
+    } else if (guess > secretNumber) {
+      Serial.println("Too high!");
+    } else {
+      Serial.println("Correct! 🎉");
+      secretNumber = random(1, 11);
+    }
+    while (digitalRead(buttonPin) == LOW); // wait for release
+  }
+
+  delay(100);
+}</code></pre>
+
+  <h2>🌟 Goal</h2>
+  <p>Successfully guess the number and get it right! Show your program in action to earn <strong>+10 points</strong>.</p>
+
+  <hr />
+  <h2>Who's already completed this quest?</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "higher-lower");
+    const done = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

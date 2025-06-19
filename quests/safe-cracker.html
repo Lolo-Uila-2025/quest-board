@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge: Safe Cracker</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Challenge: Safe Cracker</h1>
+
+  <p>Turn a potentiometer to the secret code (a specific number) to “unlock” the safe and light an LED.</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>Potentiometer</li>
+    <li>LED + 220 Ω resistor</li>
+  </ul>
+
+  <h2>Wiring</h2>
+  <ol>
+    <li>Potentiometer middle pin → A0</li>
+    <li>LED anode → pin 9 through resistor</li>
+    <li>Give the potentiometer both positive and negative power at the bottom, and negative to the LED's other leg.</li>
+  </ol>
+
+  <h2>Logic Hints</h2>
+  <ul>
+    <li>Map <code>analogRead(A0)</code> (0‑1023) to 0–99 for a 2‑digit code.</li>
+    <li>Pick a random code at startup: <code>secret = random(0,100)</code>.</li>
+    <li>If the user’s mapped value matches <code>secret</code> ±1, light up the LED for success.</li>
+  </ul>
+
+  <h2>🎯 Goal</h2>
+  <p>Show you can “crack” the safe by dialing the potentiometer until the LED lights. Earn <strong>+15 points</strong>!</p>
+
+  <hr />
+  <h2>Completion</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "safe-cracker");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

@@ -30,68 +30,59 @@
   <h1>Student Scoreboard</h1>
 
   <table id="scoreboard">
-    <thead>
-      <tr><th>Name</th><th>Points</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Total Pts</th>
+      <th>Current Pts</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<div class="nav-links">
+  <a href="quests.html">View Quest Board</a>
+  <a href="shop.html">View Shop</a>
+  <a href="rules.html">View Rules</a>
+</div>
 
-  <div class="nav-links">
-    <a href="quests.html">View Quest Board</a>
-    <a href="shop.html">View Shop</a>
-    <a href="rules.html">View Rules</a>
-  </div>
+<script src="data.js"></script>
+<script>
+  const tbody = document.querySelector("#scoreboard tbody");
 
-  <script src="data.js"></script>
-  <script>
-    const tbody = document.querySelector("#scoreboard tbody");
-  
-    // Build score maps
-    const basePoints  = {};
-    const bonusPoints = {};
-  
-    students.forEach(s => {
-      basePoints[s.id] = 0;
-      bonusPoints[s.id] = 0;
-    });
-  
-    // Calculate earned and bonus points per student
-    quests.forEach(q => {
-      q.completedBy.forEach(id => {
-        if (basePoints[id] != null) basePoints[id] += q.points;
-      });
-  
-      if (q.bonus && q.completedBonusBy) {
-        q.completedBonusBy.forEach(id => {
-          if (bonusPoints[id] != null) bonusPoints[id] += q.bonus;
-        });
-      }
-    });
-  
-    // Combine totals
-    const rankedStudents = students.map(s => {
-      const earned = basePoints[s.id] || 0;
-      const bonus = bonusPoints[s.id] || 0;
-      const manual = s.points || 0;
-      const spent = s.spent || 0;
-      const total = earned + bonus + manual - spent;
-      return { name: s.name, id: s.id, total };
-    });
-  
-    // Sort descending by total
-    rankedStudents.sort((a, b) => b.total - a.total);
-  
-    // Assign medals
-    const medals = ["🥇", "🥈", "🥉"];
-  
-    // Display in table
-    rankedStudents.forEach((s, i) => {
-      const row = document.createElement("tr");
-      const medal = medals[i] || "";
-      row.innerHTML = `<td>${medal} ${s.name}</td><td>${s.total} pts</td>`;
-      tbody.appendChild(row);
-    });
-  </script>
+  // ── 1. Build score maps ───────────────────────────────────────
+  const base = {}, bonus = {};
+  students.forEach(s => { base[s.id] = 0; bonus[s.id] = 0; });
+
+  quests.forEach(q => {
+    q.completedBy.forEach(id => { base[id] += q.points; });
+    if (q.bonus && q.completedBonusBy)
+      q.completedBonusBy.forEach(id => { bonus[id] += q.bonus; });
+  });
+
+  // ── 2. Combine totals ─────────────────────────────────────────
+  const ranked = students.map(s => {
+    const earned = base[s.id] + bonus[s.id] + (s.points || 0);   // TOTAL
+    const current = earned - (s.spent || 0);                     // after spending
+    return { name: s.name, id: s.id, earned, current };
+  });
+
+  // ── 3. Sort by TOTAL points desc ──────────────────────────────
+  ranked.sort((a, b) => b.earned - a.earned);
+
+  // ── 4. Medals for top 3 ───────────────────────────────────────
+  const medals = ["🥇","🥈","🥉"];
+
+  // ── 5. Display rows ───────────────────────────────────────────
+  ranked.forEach((s, i) => {
+    const tr = document.createElement("tr");
+    const medal = medals[i] || "";
+    tr.innerHTML =
+      `<td>${medal} ${s.name}</td>
+       <td>${s.earned}</td>
+       <td>${s.current}</td>`;
+    tbody.appendChild(tr);
+  });
+</script>
   
   <!-- Existing message-board script stays the same -->
   <script src="messages.js"></script>

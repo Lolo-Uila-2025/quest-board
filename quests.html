@@ -73,6 +73,11 @@
   <p><a href="index.html" class="back-link">← Back to Scoreboard</a></p>
   <h1>Quest Board</h1>
 
+  <label for="studentSelect"><strong>View as student:</strong></label>
+<select id="studentSelect">
+  <option value="">— Everyone —</option>
+</select>
+
   <div class="quest-container">
     <!-- Left: Story + Boss -->
     <div class="left-col">
@@ -94,43 +99,79 @@
   </div>
 
   <script src="data.js"></script>
-  <script>
-    // Map columns
-    const lists = {
-      story: document.getElementById("story-list"),
-      side:  document.getElementById("side-list"),
-      challenge: document.getElementById("challenge-list")
-      // boss will reuse story-list
-    };
+<script>
+  // ---------- Build <option> list ----------
+  const select = document.getElementById("studentSelect");
+  students.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s.id;
+    opt.textContent = s.name;
+    select.appendChild(opt);
+  });
 
-    // Sort by day for consistent order
-    quests.sort((a, b) => a.day - b.day);
+  // ---------- Column map ----------
+  const lists = {
+    story:      document.getElementById("story-list"),
+    side:       document.getElementById("side-list"),
+    challenge:  document.getElementById("challenge-list")
+  };
 
+  // ---------- Build quest <li> elements ----------
+  quests.sort((a, b) => a.day - b.day);
+  quests.forEach(q => {
+    const li   = document.createElement("li");
+    li.className = q.type;           // story / side / challenge / boss
+    li.dataset.id = q.id;            // store quest id for lookup later
+
+    const link = document.createElement("a");
+    link.href  = `quests/${q.id}.html`;
+    link.className = "quest-link";
+    link.textContent = `${q.title} (+${q.points} pts)`;
+
+    const day = document.createElement("span");
+    day.className = "day-label";
+    day.textContent = `(Day ${q.day})`;
+
+    link.appendChild(day);
+    li.appendChild(link);
+
+    (q.type === "story" || q.type === "boss")
+      ? lists.story.appendChild(li)
+      : lists[q.type].appendChild(li);
+  });
+
+  // ---------- Grey-out logic ----------
+  function refreshGreyOut(studentId) {
+    // First, reset all quests back to full opacity
+    document.querySelectorAll(".quest-link").forEach(el => {
+      el.style.opacity = "1";
+    });
+
+    if (!studentId) return; // show everything if no student chosen
+
+    // Build a quick lookup of quests that student finished
+    const done = new Set();
     quests.forEach(q => {
-      const li   = document.createElement("li");
-      li.className = q.type;          // adds .story / .side / .challenge / .boss
-
-      const link = document.createElement("a");
-      link.href  = `quests/${q.id}.html`;
-      link.className = "quest-link";
-      link.textContent = `${q.title} (+${q.points} pts)`;
-
-      const day = document.createElement("span");
-      day.className = "day-label";
-      day.textContent = `(Day ${q.day})`;
-
-      link.appendChild(day);
-      li.appendChild(link);
-
-      // Determine destination list
-      if (q.type === "boss" || q.type === "story") {
-        lists.story.appendChild(li);     // bosses & stories together
-      } else if (q.type === "side") {
-        lists.side.appendChild(li);
-      } else if (q.type === "challenge") {
-        lists.challenge.appendChild(li);
+      if (q.completedBy.includes(studentId) ||
+          (q.completedBonusBy && q.completedBonusBy.includes(studentId))) {
+        done.add(q.id);
       }
     });
-  </script>
+
+    // Dim completed quests
+    done.forEach(qid => {
+      const link = document.querySelector(`[data-id='${qid}'] .quest-link`);
+      if (link) link.style.opacity = "0.4";   // grey-out look
+    });
+  }
+
+  // Populate on first load
+  refreshGreyOut("");
+
+  // Change handler
+  select.addEventListener("change", e => {
+    refreshGreyOut(e.target.value);
+  });
+</script>
 </body>
 </html>

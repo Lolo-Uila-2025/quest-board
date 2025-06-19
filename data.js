@@ -114,14 +114,7 @@ const students = [
       type: "side",
       completedBy: ["ku"]
     },
-    {
-      id: "mood-meter",
-      title: "Mood Meter",
-      points: 5,
-      day: 2,
-      type: "side",
-      completedBy: []
-    },
+    
   
     // ─── Challenges ───────────────────────────────────────────
     {
@@ -189,13 +182,49 @@ const students = [
       completedBy: []
     },
     {
-      id: "password",
-      title: "Create a Password",
-      points: 15,
-      day: 2,
+      id: "mood-meter",
+      title: "Mood Meter",
+      points: 5,
+      day: 3,
       type: "challenge",
       completedBy: []
     },
+    {
+      id: "password",
+      title: "Create a Password",
+      points: 10,
+      day: 3,
+      type: "challenge",
+      completedBy: []
+    },
+    {
+      id: "cookie-clicker",
+      title: "Cookie Clicker",
+      points: 15,
+      day: 3,
+      type: "challenge",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "movement-alarm",
+      title: "Movement Alarm",
+      points: 15,
+      day: 3,
+      type: "challenge",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "safe-cracker",
+      title: "Safe Cracker",
+      points: 20,
+      day: 3,
+      type: "challenge",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    
     
 
     // ─── Story Quests ───────────────────────────────────────────
@@ -276,13 +305,44 @@ const students = [
       completedBy: ["ku", "elias", "breezy", "lehua", "jonnie", "ili", "kahiau"],
     },
     {
+      id: "menu-interface",
+      title: "Menu Interface",
+      points: 15,
+      bonus: 5,
+      day: 3,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
       id: "adventure-game",
       title: "Choose Your Own Adventure Game", 
       points: 50,
-      day: 2,
+      day: 3,
       type: "boss",
       completedBy: [],
     },
+    {
+      id: "random-led",
+      title: "Random LED Brightness",
+      points: 15,
+      bonus: 5,
+      day: 3,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    },
+    {
+      id: "higher-lower",
+      title: "Higher or Lower",
+      points: 10,
+      day: 3,
+      type: "story",
+      completedBy: [],
+      completedBonusBy: []
+    }
+    
+    
     
   ];
   
