@@ -8,7 +8,7 @@ const students = [
     { id: "kahiau",  name: "Kahiau",  points: 4, spent: 110 },
     { id: "ku",      name: "Ku",      points: 15, spent: 0 },
     { id: "breezy",  name: "Breezy",  points: 4, spent: 60 },
-    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 10 }
+    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 20 }
   ];
   
   
@@ -311,8 +311,8 @@ const students = [
       bonus: 5,
       day: 3,
       type: "story",
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["lehua", "breezy", "ili", "jonnie", "ku", "elias", "kahiau"],
+      completedBonusBy: ["ku", "jonnie"]
     },
     {
       id: "adventure-game",
