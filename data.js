@@ -218,7 +218,7 @@ const students = [
     {
       id: "safe-cracker",
       title: "Safe Cracker",
-      points: 20,
+      points: 15,
       day: 3,
       type: "challenge",
       completedBy: [],
