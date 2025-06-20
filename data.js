@@ -320,7 +320,7 @@ const students = [
       points: 50,
       day: 3,
       type: "boss",
-      completedBy: ["lehua", "elias", "ku", "kahiau"],
+      completedBy: ["lehua", "elias", "ku", "kahiau", "breezy", "ili"],
     },
     {
       id: "random-led",
