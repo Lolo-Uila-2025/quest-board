@@ -350,7 +350,7 @@ const students = [
       day: 4,
       type: "story",
       completedBy: ["elias", "ku", "kahiau", "jonnie", "breezy", "ili", "lehua"],
-      completedBonusBy: ["ku", "jonnie"]
+      completedBonusBy: ["ku", "jonnie", "elias"]
     },
     {
       id: "release-the-fish",
