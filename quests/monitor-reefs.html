@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: Monitor the Reefs!</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    figure.illustration {
+      margin: 16px auto;
+      text-align: left;
+    }
+    figure.illustration img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figure.illustration figcaption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Story Quest: Monitor the Reefs!</h1>
+
+  <p>Use a DHT11 sensor to monitor temperature and humidity as if you were observing environmental conditions on a coral reef!</p>
+
+  <h2>Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>Breadboard</li>
+    <li>Jumper wires</li>
+    <li>3 female-to-male jumper wires</li>
+    <li>DHT11 sensor module</li>
+  </ul>
+
+  <figure class="illustration">
+    <img src="../images/DHT.png" alt="DHT11 sensor wiring example">
+    <figcaption>The DHT11 sensor module</figcaption>
+  </figure>
+
+  <p>The DHT11 sensor module will require the use of a library, <a href="../libraries\DHT.zip" target="_blank">
+    click here to download it!</a></p>
+
+  <h2>Wiring Instructions</h2>
+  <ol>
+    <li>Left pin of DHT11 → pin 2</li>
+    <li>Middle pin → positive</li>
+    <li>Right pin → negative</li>
+  </ol>
+  <p><em>Tip: Use a breadboard so that it's easier to hook up an LCD later.</em></p>
+
+  <h2>How It Works</h2>
+  <p>
+    The DHT11 sensor combines a temperature and humidity sensor and sends digital values to your Arduino.
+    It works by detecting how electrical resistance changes with water vapor levels inside the sensor—pretty cool!
+  </p>
+
+  <h2>Code Setup</h2>
+  <p>Install the <strong>DHT_nonblocking</strong> library and set up your code like this:</p>
+
+  <h3>1. Include the Library</h3>
+  <pre><code>#include &lt;DHT_nonblocking.h&gt;
+#define DHT_SENSOR_TYPE DHT_TYPE_11</code></pre>
+
+  <h3>2. Assign Pins and Create Sensor Object</h3>
+  <pre><code>static const int DHT_SENSOR_PIN = 2;
+DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );</code></pre>
+
+  <h3>3. Begin Serial</h3>
+  <pre><code>Serial.begin(9600);</code></pre>
+
+  <h3>4. Create the Measuring Function</h3>
+  <pre><code>static bool measure_environment(float *temperature, float *humidity) {
+  static unsigned long measurement_timestamp = millis();
+  if (millis() - measurement_timestamp > 3000ul) {
+    if (dht_sensor.measure(temperature, humidity) == true) {
+      measurement_timestamp = millis();
+      return true;
+    }
+  }
+  return false;
+}</code></pre>
+
+  <h3>5. Use the Values</h3>
+  <pre><code>float temperature;
+float humidity;
+
+if (measure_environment(&temperature, &humidity)) {
+  Serial.print("T = ");
+  Serial.print(temperature, 1);
+  Serial.print(" deg. C, H = ");
+  Serial.print(humidity, 1);
+  Serial.println("%");
+}</code></pre>
+
+  <h2>🎯 Goal</h2>
+  <p>Detect temperature and humidity and print the readings to the Serial Monitor. Earn <strong>+10 points!</strong></p>
+
+  <h2>✨ Bonus</h2>
+  <p>Display the readings on the LCD screen instead of Serial Monitor. Earn <strong>+25 bonus points!</strong></p>
+
+  <hr />
+  <h2>Completion</h2>
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+  <h3>🌟 Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "monitor-reefs");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

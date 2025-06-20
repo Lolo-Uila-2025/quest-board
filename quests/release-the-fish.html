@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mission: Release the Fish!</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Mission: Release the Fish!</h1>
+
+  <p><strong>TODAY ONLY:</strong></p>
+
+  <p>
+    Help a fish migrate! Visit the following live fish migration camera website:
+  </p>
+
+  <p>
+    <a href="https://visdeurbel.nl/en/" target="_blank">visdeurbel.nl/en</a>
+  </p>
+
+  <p>
+    If you see a fish on the stream, press the virtual doorbell on the screen to open the gate and let the fish continue its migration!
+  </p>
+
+  <p>
+    This is a real-time conservation project that lets people across the world help fish travel upstream.
+  </p>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    Witness a fish and press the doorbell to help it through. Show your teacher or take a screenshot to earn <strong>+30 points</strong>!
+  </p>
+
+  <hr />
+  <h3>🌟 Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "monitor-reefs");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
