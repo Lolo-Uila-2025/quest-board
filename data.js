@@ -349,8 +349,8 @@ const students = [
       bonus: 25,
       day: 4,
       type: "story",
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["elias", "ku", "kahiau", "jonnie", "breezy", "ili", "lehua"],
+      completedBonusBy: ["ku", "jonnie"]
     },
     {
       id: "release-the-fish",
