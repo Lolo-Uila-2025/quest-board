@@ -40,7 +40,7 @@ const students = [
       points: 5,
       day: 1,
       type: "side",
-      completedBy: ["elias", "ku", "kahiau", "jonnie"]
+      completedBy: ["elias", "ku", "kahiau", "jonnie", "lehua", "breezy", "ili"]
     },
     {
       id: "infinite-serial",
@@ -203,7 +203,7 @@ const students = [
       points: 15,
       day: 3,
       type: "challenge",
-      completedBy: [],
+      completedBy: ["elias"],
       completedBonusBy: []
     },
     {
