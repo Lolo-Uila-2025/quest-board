@@ -2,14 +2,14 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-  { id: "elias",   name: "Elias",   points: 5, spent: 240 },
-  { id: "ili",     name: "Ili",     points: 3, spent: 60 },
-  { id: "lehua",   name: "Lehua",   points: 10, spent: 70 },
-  { id: "kahiau",  name: "Kahiau",  points: 4, spent: 160 },
-  { id: "ku",      name: "Ku",      points: 45, spent: 100 },
-  { id: "breezy",  name: "Breezy",  points: 4, spent: 70 },
-  { id: "jonnie",  name: "Jonnie",  points: 24, spent: 20 }
-];
+    { id: "elias",   name: "Elias",   points: 5, spent: 245 },
+    { id: "ili",     name: "Ili",     points: 3, spent: 60 },
+    { id: "lehua",   name: "Lehua",   points: 10, spent: 70 },
+    { id: "kahiau",  name: "Kahiau",  points: 4, spent: 160 },
+    { id: "ku",      name: "Ku",      points: 45, spent: 100 },
+    { id: "breezy",  name: "Breezy",  points: 4, spent: 70 },
+    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 20 }
+  ];
   
   
   // ---------------------------------------------------------------------
@@ -40,7 +40,7 @@ const students = [
       points: 5,
       day: 1,
       type: "side",
-      completedBy: ["elias", "ku", "kahiau", "jonnie"]
+      completedBy: ["elias", "ku", "kahiau", "jonnie", "lehua", "breezy", "ili"]
     },
     {
       id: "infinite-serial",
@@ -203,7 +203,7 @@ const students = [
       points: 15,
       day: 3,
       type: "challenge",
-      completedBy: [],
+      completedBy: ["elias"],
       completedBonusBy: []
     },
     {
@@ -218,7 +218,7 @@ const students = [
     {
       id: "safe-cracker",
       title: "Safe Cracker",
-      points: 20,
+      points: 15,
       day: 3,
       type: "challenge",
       completedBy: [],
@@ -312,8 +312,8 @@ const students = [
       bonus: 5,
       day: 3,
       type: "story",
-      completedBy: [],
-      completedBonusBy: []
+      completedBy: ["lehua", "breezy", "ili", "jonnie", "ku", "elias", "kahiau"],
+      completedBonusBy: ["ku", "jonnie"]
     },
     {
       id: "adventure-game",
@@ -321,7 +321,7 @@ const students = [
       points: 50,
       day: 3,
       type: "boss",
-      completedBy: [],
+      completedBy: ["lehua", "elias", "ku", "kahiau", "breezy", "ili"],
     },
     {
       id: "random-led",
