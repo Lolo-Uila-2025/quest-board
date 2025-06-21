@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teachable Machine: Mood Classifier</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Teachable Machine: Mood Classifier</h1>
+
+  <p>
+    In this quest, you'll train an image classification AI using your webcam to recognize facial expressions!
+    You'll create a real-time mood detection system based on your own face.
+  </p>
+
+  <h2>🔧 What You’ll Need</h2>
+  <ul>
+    <li>Computer with webcam</li>
+    <li>Access to <a href="https://teachablemachine.withgoogle.com/" target="_blank">Teachable Machine</a></li>
+  </ul>
+
+  <h2>🔧 Step-by-Step Instructions</h2>
+  <ol>
+    <li>Go to <a href="https://teachablemachine.withgoogle.com/" target="_blank">teachablemachine.withgoogle.com</a></li>
+    <li>Click "Get Started" and choose <strong>Image Project</strong> → <strong>Standard Image Model</strong></li>
+    <li>Create 4 or more classes. Example moods:
+      <ul>
+        <li>Happy</li>
+        <li>Sad</li>
+        <li>Tired</li>
+        <li>Excited</li>
+        <li>Confused</li>
+      </ul>
+    </li>
+    <li>Record webcam samples of your face expressing each mood. Try 30+ samples per class!</li>
+    <li>Train the model, then test it using the preview window</li>
+  </ol>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    Show your model working live! It should correctly identify your face as you act out each mood.
+    <strong>Earn +10 points!</strong>
+  </p>
+
+  <hr />
+  <h2>Who’s already completed this quest?</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "ai-mood-classifier");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

@@ -368,14 +368,6 @@ const students = [
   type: "story",
   completedBy: []
   },
-  {
-  id: "ai-custom-image-classifier",
-  title: "Teachable Machine: Internet Images",
-  points: 10,
-  day: 5,
-  type: "story",
-  completedBy: []
-},
 {
   id: "ai-student-teacher-detector",
   title: "Teachable Machine: Haumana or Kumu?",
@@ -391,7 +383,24 @@ const students = [
   day: 5,
   type: "story",
   completedBy: []
-}    
+},
+{
+  id: "ai-mood-classifier",
+  title: "Teachable Machine: Mood Classifier",
+  points: 10,
+  day: 5,
+  type: "story",
+  completedBy: []
+},
+{
+  id: "ai-custom-image-classifier",
+  title: "Teachable Machine: Internet Images",
+  points: 20,
+  day: 5,
+  type: "story",
+  completedBy: []
+},
+
     
     
   ];
