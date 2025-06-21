@@ -383,10 +383,15 @@ const students = [
   day: 5,
   type: "story",
   completedBy: []
-}
-
-    
-    
+},
+{
+  id: "ai-pose-spell-name",
+  title: "Teachable Machine: Spell Your Name with Poses",
+  points: 15,
+  day: 5,
+  type: "story",
+  completedBy: []
+}    
     
     
   ];
