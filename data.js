@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------
 const students = [
     { id: "elias",   name: "Elias",   points: 120, spent: 245 },
-    { id: "ili",     name: "Ili",     points: 108, spent: 60 },
+    { id: "ili",     name: "Ili",     points: 108, spent: 140 },
     { id: "lehua",   name: "Lehua",   points: 115, spent: 70 },
     { id: "kahiau",  name: "Kahiau",  points: 109, spent: 250 },
     { id: "ku",      name: "Ku",      points: 180, spent: 200 },
