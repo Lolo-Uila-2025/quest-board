@@ -358,7 +358,7 @@ const students = [
       points: 30,
       day: 4,
       type: "story",
-      completedBy: []
+      completedBy: ["elias", "ku", "kahiau", "jonnie", "breezy", "ili", "lehua"]
     },
     {
   id: "ai-hand-classifier",
