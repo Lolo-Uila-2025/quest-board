@@ -371,7 +371,7 @@ const students = [
   {
   id: "ai-custom-image-classifier",
   title: "Teachable Machine: Internet Images",
-  points: 15,
+  points: 10,
   day: 5,
   type: "story",
   completedBy: []
@@ -379,7 +379,7 @@ const students = [
 {
   id: "ai-student-teacher-detector",
   title: "Teachable Machine: Haumana or Kumu?",
-  points: 15,
+  points: 10,
   day: 5,
   type: "story",
   completedBy: []
@@ -387,7 +387,7 @@ const students = [
 {
   id: "ai-pose-spell-name",
   title: "Teachable Machine: Spell Your Name with Poses",
-  points: 15,
+  points: 10,
   day: 5,
   type: "story",
   completedBy: []
