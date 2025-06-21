@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teachable Machine: Haumana or Kumu?</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Teachable Machine: Haumana or Kumu?</h1>
+
+  <p>
+    Can you train an AI to tell who’s who? In this quest, you’ll use the webcam and Teachable Machine to create a classifier that can distinguish between:
+  </p>
+  <ul>
+    <li><strong>Haumana (You guys!)</strong></li>
+    <li><strong>The Kumu</strong></li>
+    <li><strong>Background/nothing</strong></li>
+  </ul>
+
+  <h2>🎯 Your Goal</h2>
+  <p>
+    Create an AI model that can recognize whether a person in front of the camera is a student, a teacher, or no one at all. You’ll train the AI by showing it examples of each using your webcam.
+  </p>
+
+  <h2>🔧 Steps to Follow</h2>
+  <ol>
+    <li>Go to <a href="https://teachablemachine.withgoogle.com/" target="_blank">Teachable Machine</a>.</li>
+    <li>Choose an <strong>Image Project</strong> → “Standard Image Model”.</li>
+    <li>Create 3 classes: <strong>Haumana</strong>, <strong>Kumu</strong>, and <strong>Background</strong>.</li>
+    <li>Use the webcam to record short clips of each class:
+      <ul>
+        <li>Ask your classmates to record 10–20 seconds labeled as Haumana”</li>
+        <li>Steal Uncle Cody and Auntie Jas for "Kumu” examples</li>
+        <li>Record an empty background for “Background”</li>
+      </ul>
+    </li>
+    <li>Click “Train Model” and preview the live detection!</li>
+  </ol>
+
+  <h2>✅ Completion</h2>
+  <p>
+    If your model can reasonably tell if a student or teacher is in front of the camera, and say “background” when no one is there — you earn <strong>+15 points!</strong>
+  </p>
+
+  <h2>💡 Extra Ideas</h2>
+  <ul>
+    <li>Try using different lighting conditions to test robustness.</li>
+    <li>Try making the teacher class stricter: e.g., only when wearing a lanyard or standing.</li>
+    <li>Use it as a fun detector: “Uh oh, teacher detected!”</li>
+  </ul>
+
+  <hr />
+  <h2>Who’s completed this quest?</h2>
+  <ul id="completed-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "ai-student-teacher-detector");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      if (done.has(s.id)) {
+        doneUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

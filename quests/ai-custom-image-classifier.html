@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Quest: AI Image Classifier (Downloaded Images)</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Teachable Machine: Internet Images</h1>
+
+  <p>
+    In this quest, you’ll use <a href="https://teachablemachine.withgoogle.com/" target="_blank">Teachable Machine</a> again — but this time, instead of using your webcam, you’ll train your model using images downloaded from the internet!
+  </p>
+
+  <h2>🎯 Your Goal</h2>
+  <p>
+    Create a working image classifier using at least 3 different categories of images.
+    Once trained, use the live preview to see if your model can guess correctly from new test images.
+  </p>
+
+  <h2>📂 Ideas for Categories</h2>
+  <ul>
+    <li>Different breeds of dogs or cats</li>
+    <li>Different animals (e.g. dolphin, fox, elephant)</li>
+    <li>Logos of different sports teams</li>
+    <li>Different types of food (pizza, burger, ramen, etc.)</li>
+    <li>Screenshots from different video games</li>
+  </ul>
+
+  <h2>🔧 Steps to Follow</h2>
+  <ol>
+    <li>Go to <a href="https://teachablemachine.withgoogle.com/" target="_blank">teachablemachine.withgoogle.com</a>.</li>
+    <li>Choose the "Image Project" and then select "Standard image model".</li>
+    <li>Click “Upload” for each class, and add at least 10–15 pictures per category.</li>
+    <li>Train your model using the “Train Model” button.</li>
+    <li>Test it using the “Preview” section.</li>
+  </ol>
+
+  <h2>💡 Tips</h2>
+  <ul>
+    <li>You can use Google Images to find pictures. Right-click and “Save As...”</li>
+    <li>The more images you add, the smarter your model will be.</li>
+    <li>Make sure your photos clearly show what each category is!</li>
+  </ul>
+
+  <h2>✅ Completion</h2>
+  <p>
+    Show your working model to your instructor or a classmate, and demonstrate how it can tell the difference between your categories.
+    If it can recognize them reliably — even with new images — you’ll earn <strong>+15 points</strong>!
+  </p>
+
+  <hr />
+  <h2>Who’s completed this quest?</h2>
+  <ul id="completed-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "ai-custom-image-classifier");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      if (done.has(s.id)) {
+        doneUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

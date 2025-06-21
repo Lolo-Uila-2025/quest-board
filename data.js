@@ -2,13 +2,13 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "elias",   name: "Elias",   points: 5, spent: 245 },
-    { id: "ili",     name: "Ili",     points: 3, spent: 60 },
-    { id: "lehua",   name: "Lehua",   points: 10, spent: 70 },
-    { id: "kahiau",  name: "Kahiau",  points: 4, spent: 160 },
-    { id: "ku",      name: "Ku",      points: 45, spent: 100 },
-    { id: "breezy",  name: "Breezy",  points: 4, spent: 70 },
-    { id: "jonnie",  name: "Jonnie",  points: 24, spent: 20 }
+    { id: "elias",   name: "Elias",   points: 110, spent: 245 },
+    { id: "ili",     name: "Ili",     points: 108, spent: 60 },
+    { id: "lehua",   name: "Lehua",   points: 115, spent: 70 },
+    { id: "kahiau",  name: "Kahiau",  points: 109, spent: 160 },
+    { id: "ku",      name: "Ku",      points: 150, spent: 100 },
+    { id: "breezy",  name: "Breezy",  points: 109, spent: 70 },
+    { id: "jonnie",  name: "Jonnie",  points: 129, spent: 20 }
   ];
   
   
@@ -360,6 +360,31 @@ const students = [
       type: "story",
       completedBy: []
     },
+    {
+  id: "ai-hand-classifier",
+  title: "Teachable Machine: Hand Signs",
+  points: 10,
+  day: 5,
+  type: "story",
+  completedBy: []
+  },
+  {
+  id: "ai-custom-image-classifier",
+  title: "Teachable Machine: Internet Images",
+  points: 15,
+  day: 5,
+  type: "story",
+  completedBy: []
+},
+{
+  id: "ai-student-teacher-detector",
+  title: "Teachable Machine: Haumana or Kumu?",
+  points: 15,
+  day: 5,
+  type: "story",
+  completedBy: []
+}
+
     
     
     
