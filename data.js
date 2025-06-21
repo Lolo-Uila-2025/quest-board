@@ -382,7 +382,7 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["jonnie"]
 },
 {
   id: "ai-mood-classifier",
@@ -398,7 +398,7 @@ const students = [
   points: 20,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["elias"]
 },
 
     
