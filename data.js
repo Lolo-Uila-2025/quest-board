@@ -366,7 +366,7 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["kahiau", "elias"]
   },
 {
   id: "ai-student-teacher-detector",
