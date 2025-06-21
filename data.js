@@ -366,7 +366,7 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: ["kahiau", "elias"]
+  completedBy: ["kahiau", "elias", "ku", "jonnie"]
   },
 {
   id: "ai-student-teacher-detector",
@@ -374,7 +374,7 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["elias"]
 },
 {
   id: "ai-pose-spell-name",
