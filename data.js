@@ -390,7 +390,7 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["elias"]
 },
 {
   id: "ai-custom-image-classifier",
