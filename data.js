@@ -3,11 +3,11 @@
 // ---------------------------------------------------------------------
 const students = [
     { id: "elias",   name: "Elias",   points: 120, spent: 550 },
-    { id: "ili",     name: "Ili",     points: 108, spent: 140 },
-    { id: "lehua",   name: "Lehua",   points: 115, spent: 70 },
+    { id: "ili",     name: "Ili",     points: 108, spent: 170 },
+    { id: "lehua",   name: "Lehua",   points: 115, spent: 100 },
     { id: "kahiau",  name: "Kahiau",  points: 110, spent: 290 },
     { id: "ku",      name: "Ku",      points: 180, spent: 380 },
-    { id: "breezy",  name: "Breezy",  points: 119, spent: 80 },
+    { id: "breezy",  name: "Breezy",  points: 119, spent: 110 },
     { id: "jonnie",  name: "Jonnie",  points: 149, spent: 90 }
   ];
   
