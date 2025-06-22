@@ -2,7 +2,7 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "elias",   name: "Elias",   points: 120, spent: 405 },
+    { id: "elias",   name: "Elias",   points: 120, spent: 550 },
     { id: "ili",     name: "Ili",     points: 108, spent: 140 },
     { id: "lehua",   name: "Lehua",   points: 115, spent: 70 },
     { id: "kahiau",  name: "Kahiau",  points: 110, spent: 290 },
