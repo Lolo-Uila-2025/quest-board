@@ -2,13 +2,13 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "elias",   name: "Elias",   points: 246, spent: 550 },
+    { id: "elias",   name: "Elias",   points: 276, spent: 550 },
     { id: "ili",     name: "Ili",     points: 229, spent: 170 },
-    { id: "lehua",   name: "Lehua",   points: 238, spent: 100 },
+    { id: "lehua",   name: "Lehua",   points: 278, spent: 100 },
     { id: "kahiau",  name: "Kahiau",  points: 233, spent: 290 },
-    { id: "ku",      name: "Ku",      points: 307, spent: 380 },
+    { id: "ku",      name: "Ku",      points: 337, spent: 380 },
     { id: "breezy",  name: "Breezy",  points: 246, spent: 110 },
-    { id: "jonnie",  name: "Jonnie",  points: 276, spent: 90 }
+    { id: "jonnie",  name: "Jonnie",  points: 316, spent: 90 }
   ];
   
   
