@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mission: NRF Chat Messenger</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    figure.illustration {
+      margin: 16px auto;
+      text-align: left;
+    }
+    figure.illustration img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figure.illustration figcaption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Mission: NRF Chat Messenger</h1>
+
+  <p>
+    In this mission, you'll create a simple encrypted chat system between two Arduinos using the NRF24L01 module.
+    When a message is received, it will automatically decrypt and appear in the Serial Monitor.
+  </p>
+
+  <h2>🔧 Required Components</h2>
+  <ul>
+    <li>Arduino board</li>
+    <li>NRF24L01 modules</li>
+    <li>Jumper wires</li>
+    <li>Optional: passive buzzer for bonus</li>
+  </ul>
+
+  <h2>🔌 Wiring</h2>
+  <figure class="illustration">
+    <img src="../images/nrf.png" alt="nRF24L01 wiring diagram">
+    <figcaption>Example NRF24L01 wiring to Arduino</figcaption>
+  </figure>
+
+  <ul>
+    <li>VCC → 3.3V (⚠️ <strong>Do not connect to 5V!</strong>)</li>
+    <li>GND → GND</li>
+    <li>CE → pin 7</li>
+    <li>CSN → pin 8</li>
+    <li>SCK → pin 13</li>
+    <li>MOSI → pin 11</li>
+    <li>MISO → pin 12</li>
+  </ul>
+
+  <h2>📜 Code</h2>
+  <p>Paste this code into each Arduino. Be sure to change the <code>USERNAME</code> string at the top for each device!</p>
+
+  <pre><code>#include &lt;SPI.h&gt;
+#include &lt;nRF24L01.h&gt;
+#include &lt;RF24.h&gt;
+
+#define CE_PIN  7
+#define CSN_PIN 8
+
+RF24 radio(CE_PIN, CSN_PIN);
+
+const byte  pipeAddress[6] = "CHAT1";
+const uint8_t MAX_LEN      = 32;
+const int    SHIFT         = 0;
+const String USERNAME      = "Username";  // Change this!
+
+bool expectUsername = false;
+bool inMessage      = false;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {}
+  Serial.print(F("\nnRF24L01 Serial Chat – user: "));
+  Serial.println(USERNAME);
+  Serial.println(F("Type a message and press Enter.\n"));
+
+  if (!radio.begin()) {
+    Serial.println(F("Radio hardware not responding"));
+    while (1) { delay(1000); }
+  }
+
+  radio.setPALevel(RF24_PA_LOW);
+  radio.setDataRate(RF24_250KBPS);
+  radio.setRetries(5, 15);
+
+  radio.openWritingPipe(pipeAddress);
+  radio.openReadingPipe(1, pipeAddress);
+  radio.startListening();
+}
+
+void loop() {
+  if (radio.available())  handleIncomingChunk();
+  if (Serial.available()) handleOutgoingMessage();
+}
+
+String encrypt(const String &msg, int shift) {
+  String out;
+  for (char c : msg) {
+    if (c >= 'a' && c <= 'z')
+      out += char('a' + (c - 'a' + shift) % 26);
+    else if (c >= 'A' && c <= 'Z')
+      out += char('A' + (c - 'A' + shift) % 26);
+    else
+      out += c;
+  }
+  return out;
+}
+String decrypt(const String &msg, int shift) { return encrypt(msg, 26 - (shift % 26)); }
+
+void handleOutgoingMessage() {
+  String plain = Serial.readStringUntil('\n');
+  plain.trim();
+  if (plain.length() == 0) return;
+
+  String cipher = encrypt(plain, SHIFT);
+
+  radio.stopListening();
+  radio.write("\n", 2);
+  radio.startListening();
+  delay(5);
+
+  String userTag = USERNAME + ":";
+  for (unsigned int i = 0; i < userTag.length(); i += MAX_LEN) {
+    String chunk = userTag.substring(i, i + MAX_LEN);
+    radio.stopListening();
+    radio.write(chunk.c_str(), chunk.length() + 1);
+    radio.startListening();
+    delay(5);
+  }
+
+  for (unsigned int i = 0; i < cipher.length(); i += MAX_LEN) {
+    String chunk = cipher.substring(i, i + MAX_LEN);
+    radio.stopListening();
+    radio.write(chunk.c_str(), chunk.length() + 1);
+    radio.startListening();
+    delay(10);
+  }
+
+  Serial.print(F("\nYou → "));
+  Serial.println(plain);
+}
+
+void handleIncomingChunk() {
+  char buf[MAX_LEN + 1] = {0};
+  radio.read(&buf, sizeof(buf));
+  String chunk = String(buf);
+
+  if (chunk == "\n") {
+    Serial.println();
+    expectUsername = true;
+    inMessage = false;
+    return;
+  }
+
+  if (expectUsername) {
+    Serial.print(chunk); Serial.print(' ');
+    expectUsername = false;
+    inMessage = true;
+    return;
+  }
+
+  if (inMessage) {
+    Serial.print(decrypt(chunk, SHIFT));
+  }
+}
+</code></pre>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    Set up Arduinos to wirelessly send encrypted messages to each other via Serial Monitor.
+    Once messages are decrypted and displayed correctly, you earn <strong>+30 points!</strong>
+  </p>
+
+  <h2>💥 Bonus</h2>
+  <p>
+    Wire up a <strong>passive buzzer</strong> to <code>pin 3</code> and have it beep when a new message is received.
+    You'll need to call <code>tone(3, 880, 200);</code> inside <code>handleIncomingChunk()</code>. This earns you <strong>+10 bonus points</strong>!
+  </p>
+
+  <hr />
+  <h2>Completion</h2>
+  <h3>✅ Completed + Bonus</h3>
+  <ul id="completed-bonus-list"></ul>
+  <h3>🟩 Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "nrf-chat");
+    const baseDone = new Set(quest.completedBy);
+    const bonusDone = new Set(quest.completedBonusBy || []);
+    const bonusUL = document.getElementById("completed-bonus-list");
+    const baseUL = document.getElementById("completed-list");
+    const pendingUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      if (bonusDone.has(s.id)) {
+        bonusUL.appendChild(li);
+      } else if (baseDone.has(s.id)) {
+        baseUL.appendChild(li);
+      } else {
+        pendingUL.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Website Writing Warm-Up</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+
+  <h1>Website Writing Warm-Up ✍️</h1>
+
+  <p>
+    Before we jump into designing your website, let’s write the content that will go on it!
+    In this quest, you’ll brainstorm and type your answers in <strong>Notepad</strong> and save the file for later.
+  </p>
+
+  <h2>📝 What You’ll Need</h2>
+  <ul>
+    <li>Open <strong>Notepad</strong> on your computer</li>
+    <li>Answer the following prompts in full sentences</li>
+    <li>Save your file as <code>website_text.txt</code></li>
+  </ul>
+
+  <h2>✏️ What to Write About</h2>
+  <ol>
+    <li><strong>What is an Arduino?</strong> Explain it in your own words.</li>
+    <li><strong>Describe an Arduino project</strong> you really enjoyed this summer.</li>
+    <li><strong>What is your favorite Arduino part?</strong> (ex: buzzer, LED, LCD, potentiometer) and why?</li>
+    <li><strong>How did you teach an AI using machine learning?</strong> What did it learn to do?</li>
+    <li><strong>Why is encryption and decryption important?</strong></li>
+    <li><strong>Show an example of Caesar Cipher:</strong> Write a sentence, encrypt it, and then decrypt it.</li>
+    <li><strong>What’s one part of Lolo Uila you really enjoyed?</strong> What made it fun?</li>
+    <li><strong>What’s one part of Lolo Uila that was difficult?</strong> How did you deal with it?</li>
+    <li><strong>What was your favorite activity during Rez-life?</strong></li>
+    <li><strong>How did you feel about this year’s Summer Institute?</strong> Would you like to return next year?</li>
+  </ol>
+
+  <p><strong>✅ Save your writing!</strong> This will become the content for your personal website.</p>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    By the end of this quest, you should have a saved Notepad file that includes full answers for all 10 questions above. 
+    This will make building your site much easier in the next quest!
+  </p>
+
+  <hr />
+
+  <h2>Who’s already completed this quest?</h2>
+
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "website-writing");
+    const finished = new Set(quest.completedBy);
+
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (finished.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

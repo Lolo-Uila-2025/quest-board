@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Side Quest: Mood Meter</title>
+  <title>Side Quest: Mood Meter (Serial Version)</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -10,50 +10,34 @@
 
   <h1>Side Quest: Mood Meter</h1>
 
-  <p>In this mini quest, you’ll use a potentiometer to “read your mood” and display it on the LCD screen. Turning the knob will change what message appears!</p>
+  <p>
+    In this version of the quest, you’ll use a potentiometer to “read your mood” and display it in the Serial Monitor. 
+    Turning the knob changes the message that appears in the Serial Monitor!
+  </p>
 
   <h2>Required Components</h2>
   <ul>
     <li>Arduino board</li>
     <li>Potentiometer</li>
-    <li>LCD Display (with 6 pins: RS, E, D4–D7)</li>
     <li>Breadboard & jumper wires</li>
   </ul>
 
   <h2>Wiring Tips</h2>
-  <p>You can wire the potentiometer like before (center to A0, sides to 5V and GND). Your LCD should be wired as shown in your previous LCD quest (or however you prefer — just match the pin numbers in code).</p>
+  <p>Connect the potentiometer like this:</p>
+  <ul>
+    <li>Middle pin → A0</li>
+    <li>One side → 5V</li>
+    <li>Other side → GND</li>
+  </ul>
 
-  <h2>Example Code Structure</h2>
-  <p>Start with something like:</p>
 
-  <pre><code>
-#include &lt;LiquidCrystal.h&gt;
 
-LiquidCrystal lcd(7, 8, A0, A1, A2, A3); // RS, E, D4–D7
-int moodPin = A5;
-
-void setup() {
-  lcd.begin(16, 2);
-}
-
-void loop() {
-  int value = analogRead(moodPin);
-  lcd.clear();
-
-  if (value &lt; 300) {
-    lcd.print("Angry");
-  } else if (value &lt; 700) {
-    lcd.print("Meh");
-  } else {
-    lcd.print("Happy");
-  }
-
-  delay(500);
-}
-  </code></pre>
 
   <h2>🎯 Goal</h2>
-  <p>Turn the knob and show how the LCD updates the mood. <strong>You must add at least one more mood!</strong> Have at least 4 moods working to earn <strong>+5 points</strong> for completing this quest.</p>
+  <p>
+    Turn the knob and watch the Serial Monitor update your mood. 
+    <strong>Make sure you include at least 4 distinct moods</strong> to earn <strong>+5 points</strong> for completing this quest.
+  </p>
 
   <hr />
 

@@ -400,6 +400,24 @@ const students = [
   type: "story",
   completedBy: ["elias", "lehua"]
 },
+{
+  id: "nrf-chat",
+  title: "NRF Chat Messenger",
+  points: 30,
+  bonus: 10,
+  day: 6,
+  type: "story",
+  completedBy: [],
+  completedBonusBy: []
+},
+{
+  id: "website-writing",
+  title: "Website Writing Warm-Up",
+  points: 10,
+  day: 6,
+  type: "story",
+  completedBy: [],
+},
 
     
     
