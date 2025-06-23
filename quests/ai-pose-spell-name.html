@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teachable Machine: Pose Spelling</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a href="../quests.html" class="back-link">← Back to Quest Board</a>
+  <h1>Teachable Machine: Spell Your Name with Poses</h1>
+
+  <p>
+    In this quest, you’ll use the <strong>Pose Project</strong> option in Teachable Machine to train an AI that recognizes body poses shaped like letters. When you finish, you’ll be able to spell out your name by striking each pose in front of the webcam.
+  </p>
+
+  <h2>🔧 What You’ll Need</h2>
+  <ul>
+    <li>Computer with webcam</li>
+    <li>Access to <a href="https://teachablemachine.withgoogle.com/" target="_blank">Teachable Machine</a></li>
+  </ul>
+
+  <h2>Step‑by‑Step Instructions</h2>
+  <ol>
+    <li>Go to <a href="https://teachablemachine.withgoogle.com/" target="_blank">teachablemachine.withgoogle.com</a>.</li>
+    <li>Select <strong>Pose Project</strong> → <strong>Standard Pose Model</strong>.</li>
+    <li>Create one class for <strong>each letter in your first name</strong>. <br>(Example: for “CODY” make C, O, D, Y.)</li>
+    <li>Record ≈ 30 pose samples per letter. Tip: exaggerate the letter shape so the model sees clear differences.</li>
+    <li>Add <em>No Pose</em> class (optional) to help the model ignore random movements.</li>
+    <li>Click “Train Model” and wait for it to finish.</li>
+    <li>Use the live preview to test: strike each letter pose and watch the prediction bar.</li>
+  </ol>
+
+  <h2>🎯 Goal</h2>
+  <p>
+    Spell your entire name in order, on camera, with the model correctly identifying each pose. <strong>Earn +10 points!</strong>
+  </p>
+
+  <h2>💡 Tips</h2>
+  <ul>
+    <li>Stand in good lighting and keep the camera steady.</li>
+    <li>If two letters look similar, try adding accessories (e.g., raise one hand higher).</li>
+    <li>Retrain if the preview is confused or mixes letters.</li>
+  </ul>
+
+  <hr />
+  <h2>Who’s already completed this quest?</h2>
+  <h3>✅ Completed</h3>
+  <ul id="completed-list"></ul>
+  <h3>⏳ Not yet completed</h3>
+  <ul id="pending-list"></ul>
+
+  <script src="../data.js"></script>
+  <script>
+    const quest = quests.find(q => q.id === "ai-pose-spell-name");
+    const done = new Set(quest.completedBy);
+    const doneUL = document.getElementById("completed-list");
+    const todoUL = document.getElementById("pending-list");
+    students.forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s.name;
+      (done.has(s.id) ? doneUL : todoUL).appendChild(li);
+    });
+  </script>
+</body>
+</html>

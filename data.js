@@ -2,13 +2,13 @@
 //  Student roster – give every student a short, unique id for easy look-up
 // ---------------------------------------------------------------------
 const students = [
-    { id: "elias",   name: "Elias",   points: 110, spent: 245 },
-    { id: "ili",     name: "Ili",     points: 108, spent: 60 },
-    { id: "lehua",   name: "Lehua",   points: 115, spent: 70 },
-    { id: "kahiau",  name: "Kahiau",  points: 109, spent: 160 },
-    { id: "ku",      name: "Ku",      points: 150, spent: 100 },
-    { id: "breezy",  name: "Breezy",  points: 109, spent: 70 },
-    { id: "jonnie",  name: "Jonnie",  points: 129, spent: 20 }
+    { id: "elias",   name: "Elias",   points: 120, spent: 550 },
+    { id: "ili",     name: "Ili",     points: 108, spent: 170 },
+    { id: "lehua",   name: "Lehua",   points: 115, spent: 100 },
+    { id: "kahiau",  name: "Kahiau",  points: 110, spent: 290 },
+    { id: "ku",      name: "Ku",      points: 180, spent: 380 },
+    { id: "breezy",  name: "Breezy",  points: 119, spent: 110 },
+    { id: "jonnie",  name: "Jonnie",  points: 149, spent: 90 }
   ];
   
   
@@ -358,7 +358,7 @@ const students = [
       points: 30,
       day: 4,
       type: "story",
-      completedBy: []
+      completedBy: ["elias", "ku", "kahiau", "jonnie", "breezy", "ili", "lehua"]
     },
     {
   id: "ai-hand-classifier",
@@ -366,27 +366,41 @@ const students = [
   points: 10,
   day: 5,
   type: "story",
-  completedBy: []
+  completedBy: ["kahiau", "elias", "ku", "jonnie", "lehua", "breezy"]
   },
-  {
-  id: "ai-custom-image-classifier",
-  title: "Teachable Machine: Internet Images",
-  points: 15,
-  day: 5,
-  type: "story",
-  completedBy: []
-},
 {
   id: "ai-student-teacher-detector",
   title: "Teachable Machine: Haumana or Kumu?",
-  points: 15,
+  points: 10,
   day: 5,
   type: "story",
-  completedBy: []
-}
+  completedBy: ["elias", "lehua", "jonnie"]
+},
+{
+  id: "ai-pose-spell-name",
+  title: "Teachable Machine: Spell Your Name with Poses",
+  points: 10,
+  day: 5,
+  type: "story",
+  completedBy: ["jonnie", "lehua"]
+},
+{
+  id: "ai-mood-classifier",
+  title: "Teachable Machine: Mood Classifier",
+  points: 10,
+  day: 5,
+  type: "story",
+  completedBy: ["elias", "jonnie", "lehua"]
+},
+{
+  id: "ai-custom-image-classifier",
+  title: "Teachable Machine: Internet Images",
+  points: 20,
+  day: 5,
+  type: "story",
+  completedBy: ["elias", "lehua"]
+},
 
-    
-    
     
     
   ];
