@@ -398,7 +398,7 @@ const students = [
   points: 20,
   day: 5,
   type: "story",
-  completedBy: ["elias", "lehua"]
+  completedBy: ["elias", "lehua", "jonnie"]
 },
 {
   id: "nrf-chat",
