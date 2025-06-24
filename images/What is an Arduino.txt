@@ -1,0 +1,28 @@
+What is an Arduino?
+An Arduino is a programmable microcontroller that can power different components such as LEDs, screens, and buzzers. It's kind of like a little guy that can control where to send power to, as well as read the power levels given from certain components in order to make games or do some kind of job.
+
+Describe an Arduino project you really enjoyed this summer.
+I really enjoyed the NRF chatroom project, as it was quick and simple to wire up and we did not have to do much coding. It connected with another activity we did involving encryption and decryption, because our transceiver's signals could be picked up by just anybody, so having a way to make our messages seem like gibberish can help us with security.
+
+How did you teach an AI using machine learning? What did it learn to do?
+I taught an AI how to tell the difference between each of the students and kumu in Lolo Uila. We did this by giving it over 500 pictures of each of the students and kumu, and telling it who was who so that it could learn the differences that make as unique. At the end, it was able to tell the difference between us most of the time.
+
+Why is encryption and decryption important?
+When we were working with the wireless transceivers, we were sending messages to each other. The problem is that anybody with the same technology as us could also see the exact same messages, which is really bad if we're talking about stuff we don't want to share. In order to prevent this, encrypting our message and turning it to gibberish before sending it protects that information, while still allowing the receiver to decrypt it and read the message, so we can send messages without fear of someone intercepting it and reading it.
+
+Show an example of Caesar Cipher.
+Welcome to Lolo Uila!
+Shift all letters to the right by 2:
+Ygneqog vq Nqnq Wknc!
+
+What's one part of Lolo Uila you realy enjoyed?
+I really enjoyed getting hands on with the arduinos, it was much different than regular programming where it's all just on the computer. Instead we can make things happen in real life when we run code which is neat.
+
+What's one part of Lolo Uila that was difficult?
+Wiring up some of the projects, especially the LCD screen was really difficult since it was easy to miss a pin by one or two squares and it required a lot of focus. When we had to wire up tons of things in such a small space it got really tough and it's hard to tell what went wrong if you don't know what you're doing.
+
+What was your favorite activity during Rez-life?
+My favorite activity during Rez-life was when we went on a Huakaʻi to Kama Kana Ali'i. We went to an exhibit that showcased plenty of Hawaiian fishing techniques alongside general knowledge of how Hawaiian culture revolved around the ocean and sea life.
+
+How did you feel about this year's Summer Institute?
+I feel pretty good about this year, I had fun learning about Arduinos and designing the website for the class. The Huaka'i was also refreshing and the cipher and encryption activities were cool.
