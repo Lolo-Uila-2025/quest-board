@@ -6,7 +6,7 @@ const students = [
     { id: "ili",     name: "Ili",     points: 229, spent: 270 },
     { id: "lehua",   name: "Lehua",   points: 298, spent: 210 },
     { id: "kahiau",  name: "Kahiau",  points: 233, spent: 290 },
-    { id: "ku",      name: "Ku",      points: 340, spent: 390 },
+    { id: "ku",      name: "Ku",      points: 340, spent: 400 },
     { id: "breezy",  name: "Breezy",  points: 250, spent: 170 },
     { id: "jonnie",  name: "Jonnie",  points: 336, spent: 330 }
   ];
