@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Topic 1 - Things I Learned</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff); /* Blue ombre */
+    }
+
+    nav {
+      background-color: rgba(0, 64, 128, 0.85);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: rgba(0, 102, 204, 0.85);
+      padding: 30px;
+      text-align: center;
+      font-size: 2em;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      margin-top: 30px;
+      backdrop-filter: blur(5px);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    footer {
+      background-color: rgba(0, 102, 204, 0.85);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <!-- Header -->
+  <header>What is your favorite Arduino part? and why?</header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <p>My favorite Arduino part is the buzzer because for one of our projects we had to make a melody and I was able to play the mario theme song on it.
+</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>&copy; 2025 My Learning Journal</footer>
+
+</body>
+</html>

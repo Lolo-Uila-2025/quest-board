@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Arduino Code Projects</title>
+  <style>
+    body {
+      font-family: monospace;
+      margin: 0;
+      background-color: #fdf6ff;
+      color: #333;
+    }
+
+    header {
+      background-color: #6a0dad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #6a0dad;
+    }
+
+    pre {
+      background-color: #f4eaff;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      background-color: #6a0dad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>My Arduino & AI Code Projects</header>
+  <div class="container">
+    <a class="back-button" href="index.html">← Back to Main Page</a>
+
+    <h2>Caesar Cipher Encoder</h2>
+    <pre>
+String message = "HELLO";
+int shift = 3;
+String encoded = "";
+
+for (int i = 0; i < message.length(); i++) {
+  char c = message.charAt(i);
+  encoded += (char)(c + shift);
+}
+Serial.println(encoded);
+    </pre>
+
+    <h2>Chatroom NRF24L01 Setup</h2>
+    <pre>
+// Basic NRF24L01 Setup
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+RF24 radio(9, 10);
+const byte address[6] = "00001";
+
+void setup() {
+  Serial.begin(9600);
+  radio.begin();
+  radio.openWritingPipe(address);
+  radio.setPALevel(RF24_PA_MIN);
+  radio.stopListening();
+}
+
+void loop() {
+  const char text[] = "Hello, friends!";
+  radio.write(&text, sizeof(text));
+  delay(1000);
+}
+    </pre>
+
+    <h2>Machine Learning Dog Classifier (Python)</h2>
+    <pre>
+from sklearn.neighbors import KNeighborsClassifier
+
+X = [[1, 0], [0, 1], [1, 1], [0, 0]]  # Sample data
+y = ["Beagle", "Husky", "Husky", "Beagle"]
+
+model = KNeighborsClassifier(n_neighbors=1)
+model.fit(X, y)
+
+prediction = model.predict([[1, 0]])
+print(prediction)
+    </pre>
+
+    <!-- Add more sections below as needed -->
+
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Arduino Code Projects</title>
+  <style>
+    body {
+      font-family: monospace;
+      margin: 0;
+      background-color: #fdf6ff;
+      color: #333;
+    }
+
+    header {
+      background-color: #6a0dad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #6a0dad;
+      margin-top: 30px;
+    }
+
+    pre {
+      background-color: #f4eaff;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin-top: 10px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      background-color: #6a0dad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>My Arduino & AI Code Projects</header>
+  <div class="container">
+    <a class="back-button" href="

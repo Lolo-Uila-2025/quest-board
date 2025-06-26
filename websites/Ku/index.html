@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Things I Learned in Class</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb); /* Purple ombre */
+    }
+
+    nav {
+      background-color: rgba(51, 0, 102, 0.8);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: rgba(102, 51, 153, 0.85);
+      padding: 30px;
+      text-align: center;
+      font-size: 2em;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      animation: fadeInUp 0.8s ease-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .section a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .section a:hover {
+      text-decoration: underline;
+    }
+
+    .code-button {
+      display: block;
+      width: fit-content;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: rgba(102, 0, 204, 0.85);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      animation: fadeInUp 1s ease-out;
+      transition: background-color 0.3s;
+    }
+
+    .code-button:hover {
+      background-color: rgba(85, 0, 170, 0.95);
+    }
+
+    footer {
+      background-color: rgba(102, 51, 153, 0.85);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <header>'Ikena Lolo Uila - NPN SI 25'</header>
+
+  <div class="container">
+    <div class="section"><a href="topic1.html">What is an Arduino</a></div>
+    <div class="section"><a href="topic2.html">Favorite Arduino project</a></div>
+    <div class="section"><a href="topic3.html">Favorite Arduino part</a></div>
+    <div class="section"><a href="topic4.html">AI: machine learning</a></div>
+    <div class="section"><a href="topic5.html">Importance of encryption and decryption</a></div>
+    <div class="section"><a href="topic6.html">Caesar Cipher example</a></div>
+    <div class="section"><a href="topic7.html">Lolo Uila: Favorite part</a></div>
+    <div class="section"><a href="topic8.html">Lolo Uila: Most difficult part</a></div>
+    <div class="section"><a href="topic9.html">Favorite rez-life activity</a></div>
+    <div class="section"><a href="topic10.html">Feedback on Summer Institute</a></div>
+
+    <button class="code-button" onclick="window.location.href='code.html'">
+      View Arduino Project Codes
+    </button>
+  </div>
+
+  <footer>&copy; 2025 My Learning Journal</footer>
+
+</body>
+</html>

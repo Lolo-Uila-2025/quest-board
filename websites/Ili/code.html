@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class Code Library</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d63384;
+      font-family: sans-serif;
+    }
+
+    .code-block {
+      background: #f8f8f8;
+      border: 1px solid #ccc;
+      padding: 15px 15px 5px;
+      margin: 30px 0;
+      position: relative;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .code-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #aa336a;
+      margin-bottom: 10px;
+      font-family: sans-serif;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .copy-btn:hover {
+      background-color: #e754a1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Class Code Library</h1>
+
+  <p style="text-align:center;">
+    <a href="index.html" style="color:#d63384; text-decoration:underline;">← Back to Learning Journal</a>
+  </p>
+
+  <!-- Block 1 -->
+  <div class="code-block">
+    <div class="code-title"> Arduino Adventure:</div>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code>void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, INPUT_PULLUP);
+  startScene();
+}
+
+/*
+ * 
+
+void startScene() {
+  Serial.println("You wake up in a huge maze. Do you:");
+  Serial.println("1: go left poisinous vines");
+  Serial.println("2: Go right quick sand");
+  Serial.println("3: Stay put");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    leftMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    rightMenu();
+  } else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    rightMenu();
+}
+
+
+ */
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+   // Empty! All logic is handled inside each scene function.
+}
+
+void waitForPress() {
+  // pause here until EITHER button reads LOW (pressed)
+  while (digitalRead(3) == HIGH && digitalRead(4) == HIGH && digitalRead(5) == HIGH) {
+    // just wait
+  }
+}
+
+void waitForRelease() {
+  // keep waiting until BOTH buttons go back to HIGH (released)
+  while (digitalRead(3) == LOW || digitalRead(4) == LOW || digitalRead(5) == LOW) {
+    delay(10);   // tiny pause to avoid bouncy presses
+  }
+}
+
+void startScene() {
+  Serial.println("You wake up in a huge maze. Do you:");
+  Serial.println("1: go left poisinous vines");
+  Serial.println("2: Go right quick sand");
+
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    poisonBugs();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("you went in the quick sand and sunk");
+    startScene();
+  } 
+}
+
+
+void poisonBugs() {
+  Serial.println("There are poisinous bugs everywhere and there are two sprays for you to spray the with. Do you:");
+  Serial.println("1: choose the left green bottle");
+  Serial.println("2: choose the right blue bottle");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    Serial.println("you used the bug attraction spray and died");
+    startScene();// jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("you succeded and killed the bugs with the spray");
+    lagoon();
+  }
+}
+
+void lagoon() {
+  Serial.println("You get to the lagoon. What do you do:");
+  Serial.println("1: swim in the lagoon");
+  Serial.println("2: keep on walking");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    Serial.println("you got torn to shreds by crocodiles");
+    startScene();// jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("You are provided with drinks that give you energy so you can continue on with your journey");
+    forestMenu();
+  }
+}
+
+void forestMenu() {
+  Serial.println("You arrive to a forest. Do you:");
+  Serial.println("1: take the middle of path covered in bushes");
+  Serial.println("2: Take the path with quicksand");
+  Serial.println("3: take the path that looks clear");
+
+  waitForPress();          // stop here until any button is pushed
+  if (digitalRead(3) == LOW) {
+    waitForRelease();
+    Serial.println("1: You succded and escaped");
+    startScene();          // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("2: You died and sunk in quick sand");
+    startScene();
+  } else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    Serial.println("3: You got eaten by tigers");
+    startScene();
+}
+}
+</code></pre>
+  </div>
+
+  <!-- Block 2 -->
+  <div class="code-block">
+    <div class="code-title">Button Test:</div>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code>
+    void setup() {
+  // put your setup code, to run once:
+Serial.begin(9600);
+pinMode(3, INPUT_PULLUP);
+pinMode(4, INPUT_PULLUP);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if (digitalRead(3) == 0) {
+Serial.println("button 1 is on!");
+}
+
+if (digitalRead(4) == 0) {
+Serial.println("button 2 is on!");
+}
+
+}
+</code></pre>
+
+  </div>
+
+  <!-- Block 3 -->
+  <div class="code-block">
+    <div class="code-title">Reefs:</div>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code>
+    #include <dht_nonblocking.h>
+#define DHT_SENSOR_TYPE DHT_TYPE_11
+
+
+static const int DHT_SENSOR_PIN = 2;
+DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+}
+
+static bool measure_environment(float *temperature, float *humidity) {
+  static unsigned long measurement_timestamp = millis();
+ 
+  if (millis() - measurement_timestamp > 3000ul) {
+    if (dht_sensor.measure(temperature, humidity) == true) {
+      measurement_timestamp = millis();
+      return true;
+    }
+  }
+  return false; 
+}
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+float temperature;
+float humidity;
+
+if (measure_environment(&temperature, &humidity)) {
+  Serial.print("T = ");
+  Serial.print(temperature, 1);
+  Serial.print(" deg. C, H = ");
+  Serial.print(humidity, 1);
+  Serial.println("%");
+}
+}
+
+</code></pre>
+  </div>
+
+  <script>
+    function copyCode(button) {
+      const code = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => { button.textContent = "Copy"; }, 1500);
+      });
+    }
+  </script>
+
+</body>
+</html>

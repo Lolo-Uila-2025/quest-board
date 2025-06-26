@@ -1,0 +1,188 @@
+<h1>Welcome to my cool website.</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What I Learned in Class</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #4682b4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.5s; }
+    section:nth-of-type(2) { animation-delay: 1s; }
+    section:nth-of-type(3) { animation-delay: 1.5s; }
+    section:nth-of-type(4) { animation-delay: 2s; }
+    section:nth-of-type(5) { animation-delay: 2.5s; }
+    section:nth-of-type(6) { animation-delay: 3s; }
+    section:nth-of-type(7) { animation-delay: 3.5s; }
+    section:nth-of-type(8) { animation-delay: 4s; }
+    section:nth-of-type(9) { animation-delay: 4.5s; }
+    section:nth-of-type(10) { animation-delay: 5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: #4682b4;
+    }
+
+    .note-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: transform 0.3s;
+    }
+
+    .note-box:hover {
+      transform: scale(1.02);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInImage 1s ease-out forwards;
+      animation-delay: 5.5s;
+    }
+
+    @keyframes fadeInImage {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 6s;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    What I Learned in Lolo 'Uila
+  </header>
+
+  <main>
+    <section>
+      <h2>Topic 1: What is an Arduino?</h2>
+      <div class="note-box">An Arduino is a circuit board that you can connect to your computer so it can do different things (ex: light up LEDs, set off buzzers, etc).</div>
+    </section>
+
+    <section>
+      <h2>Topic 2: Favorite Arduino project?</h2>
+      <div class="note-box">My favorite Arduino project that we did this summer was probably lighting up the LCD. It was like a little screen to leave messsages!! Kinda cool.</div>
+    </section>
+
+    <section>
+      <h2>Topic 3: Favorite Arduino part?</h2>
+      <div class="note-box">My favorite Arduino part has got to be the LCD because you can write things on it and it can stay there until you change it!</div>
+    </section>
+
+    <section>
+      <h2>Topic 4: How did we teach an AI?</h2>
+      <div class="note-box">
+We taught the AI to detect certain faces of people such as haumana (us guys, the students, duh) or hand signs, or kumu (the teachers).</div>
+    </section>
+
+    <section>
+      <h2>Topic 5: Why is encryption and decryption important? And an example of a Caeser Cipher.</h2>
+      <div class="note-box">Encryption and decryption is important because it ensures that our data, passwords, everything, is kept safe and protected from hackers.
+
+An example of Caeser Cipher would be:
+Ef! Qefp fp xk buxjmib!
+This can be decrypted to:
+Hi! This is an example!</div>
+    </section>
+
+    <section>
+      <h2>Topic 6: Favorite part of Lolo 'Uila?</h2>
+      <div class="note-box">One part of Lolo Uila I really enjoyed was probably working with the computers and coding with the Arduino boards. That was pretty cool.</div>
+    </section>
+
+    <section>
+      <h2>Topic 7: Difficult part of Lolo 'Uila?</h2>
+      <div class="note-box">One part of Lolo Uila that was difficult? All of it. There were some days were the coding got super complex to the point where I was literally staring at my screen with a dropped jaw. Girl. It was hard.</div>
+    </section>
+
+    <section>
+      <h2>Topic 8: Favorite activity in Res-Life?</h2>
+      <div class="note-box">My favorite thing about Rez-life was probably the newspaper fashion show, some of the outifts were actually really good.</div>
+    </section>
+
+    <section>
+      <h2>Topic 9: Feelings about NPN this summer?</h2>
+      <div class="note-box">This years Summer Institute was...interesting. We had less kids, I was mentally drained and physically exhausted every day, but even through that, I think I had a fun time making new friends. Will I be coming back? Probably not, since I will be graduating from high school and will be focusing on getting into college.  </div>
+    </section>
+
+    <!-- Add this button right before </main> in your existing index.html -->
+
+<section>
+  <h2>My Class Projects</h2>
+  <p>Click the button below to view and copy code I used in class projects.</p>
+  <button onclick="location.href='code.html'" style="padding: 10px 20px; font-size: 1em; background-color: #4682b4; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    View Project Code
+  </button>
+</section>
+
+    
+  </main>
+
+  <footer>
+    &copy; 2025 My Learning Website
+  </footer>
+
+</body>
+</html>

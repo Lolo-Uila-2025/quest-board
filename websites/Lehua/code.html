@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Project Code</title>
+  <style>
+    body {
+      font-family: Consolas, monospace;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4682b4;
+    }
+
+    .project {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #444;
+    }
+
+    pre {
+      background: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #4682b4;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="index.html">&larr; Back to Main Page</a>
+
+  <h1>Class Project Code</h1>
+
+  <div class="project">
+    <h2>Project 1: Color Picker</h2>
+    <pre><code>
+void setup() {
+  // put your setup code here, to run once:
+pinMode(9, OUTPUT);
+pinMode(10, OUTPUT);
+pinMode(11, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+int red_pin = 9;
+int green_pin = 10;
+int blue_pin = 11;
+
+ int red = map(analogRead(A0), 0, 1023, 0, 255);
+ int green = map(analogRead(A1), 0, 1023, 0, 255);
+ int blue = map(analogRead(A2), 0, 1023, 0, 255);
+
+ analogWrite(red_pin, red);
+ analogWrite(green_pin, green);
+ analogWrite(blue_pin, blue);
+}
+    </code></pre>
+  </div>
+
+  <div class="project">
+    <h2>Project 2: Choose Your Own Adventure</h2>
+    <pre><code>
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(3, INPUT_PULLUP);
+pinMode(4, INPUT_PULLUP);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+farmMenu();
+}
+
+void farmMenu() {
+  Serial.println("Welcome, player! This is your farm!");
+  Serial.println("Button 1 chooses kalo");
+  Serial.println("Button 2 chooses 'ulu");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    kaloMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    uluMenu();
+  }
+
+  
+}
+void kaloMenu() {
+  Serial.println("You chose kalo, now it's time to choose how much water to give it!");
+  Serial.println("Button 1 chooses A LOT of water");
+  Serial.println("Button 2 chooses a healthy amount of water");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    waterMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    water2Menu();
+  }
+}
+
+
+void uluMenu() {
+  Serial.println("You chose 'ulu, now it's time to choose how much water to give it!!");
+  Serial.println("Button 1 chooses A LOT of water");
+  Serial.println("Button 2 chooses a healthy amount of water");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    waterMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    water2Menu();
+  }
+}
+
+
+void waitForPress() {
+  // pause here until EITHER button reads LOW (pressed)
+  while (digitalRead(3) == HIGH && digitalRead(4) == HIGH) {
+    // just wait
+  }
+}
+
+void waitForRelease() {
+  // keep waiting until BOTH buttons go back to HIGH (released)
+  while (digitalRead(3) == LOW || digitalRead(4) == LOW) {
+    delay(10);   // tiny pause to avoid bouncy presses
+  }
+}
+
+
+void waterMenu() {
+  Serial.println("You chose A LOT of water, now your plants are overfed.");
+  Serial.println("Both buttons will take you back to the start.");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    farmMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    farmMenu();
+  }
+}
+
+
+void water2Menu() {
+  Serial.println("You chose to give it a healthy amount of water, now your plants are growing! You can now spend your money!!");
+  Serial.println("Button 1 chooses a pet!");
+  Serial.println("Button 2 chooses weed killer");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    petMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    weedkillerMenu();
+  }
+}
+
+
+void petMenu() {
+  Serial.println("You chose a pet! Which friend do you choose?");
+  Serial.println("Button 1 chooses a dog");
+  Serial.println("Button 2 chooses a goat");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    dogMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    goatMenu();
+  }
+}
+
+void dogMenu() {
+  Serial.println("You chose a dog! It tears up your garden and destroys your plants!!");
+  Serial.println("Both buttons will take you back to the start.");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    farmMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    farmMenu();
+  }
+}
+
+
+
+void goatMenu() {
+  Serial.println("You chose a goat! However, the goat got into your garden shed and chewed up all of your tools!");
+  Serial.println("Both buttons will take you back to the start.");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    farmMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    farmMenu();
+  }
+}
+
+
+
+void weedkillerMenu() {
+  Serial.println("You chose the weed killer! Unfortunately, you accidentally added too much to the weeds next you your plants and killed them as well!!");
+  Serial.println("Both buttons will take you back to the start.");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    farmMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    farmMenu();
+  }
+}
+    </code></pre>
+  </div>
+
+  <div class="project">
+    <h2>Project 3: LCD Display</h2>
+    <pre><code>
+#include <LiquidCrystal.h>
+
+// RS, E, D4, D5, D6, D7
+LiquidCrystal lcd(7, 8, A0, A1, A2, A3);
+
+void setup() {
+  // put your setup code here, to run once:
+lcd.begin(16, 2); //16 characters, 2 lines
+lcd.print("Hello, world!!"); 
+
+lcd.setCursor(0, 1); // column 0, row 1
+lcd.print("Live with aloha. :)");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+    </code></pre>
+  </div>
+
+</body>
+</html>

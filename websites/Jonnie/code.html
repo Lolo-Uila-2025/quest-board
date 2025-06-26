@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Code Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007acc;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #007acc;
+      margin-top: 0;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Class Code Projects</h1>
+    <p>Here’s all the code I wrote and used in class projects</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>💡 Project 1: Calculator App</h2>
+      <pre><code>
+// Simple JavaScript calculator
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3));
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>🌐 Project 2: HTML Website</h2>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>🐍 Project 3: Python Game</h2>
+      <pre><code>void setup() {
+Serial.begin(9600);
+pinMode(3, INPUT_PULLUP);
+pinMode(4, INPUT_PULLUP);
+pinMode(5, INPUT_PULLUP);
+}
+
+void loop() {
+start();
+
+}
+
+void waitForPress() {
+  // pause here until EITHER button reads LOW (pressed)
+ 
+  while (digitalRead(3) == HIGH && digitalRead(4) == HIGH && digitalRead(5) == HIGH) {
+    
+  }
+}
+
+void waitForRelease() {
+  // keep waiting until BOTH buttons go back to HIGH (released)
+  while (digitalRead(3) == LOW || digitalRead(4) == LOW || digitalRead(5) == LOW) {
+    delay(10);   // tiny pause to avoid bouncy presses
+  }
+}
+
+void start() {
+  Serial.println(" The darkness quickly fades and you blink a few times as you quicky regain awareness of your surroundings,");
+  Serial.println("the first thing you see is a massive dragon with crimson scales, (don't those not exist?).");
+  Serial.println("It goes to step on you, luckily, someone pulls you out of the way.");
+  Serial.println("'Tobias now is not the time to panic'");
+  Serial.println("The person who saved you is dressed quite oddly, a cloak, boots, rapier in one hand and a dagger in the one they just grabbed you with??.");
+  Serial.println("---");
+  Serial.println("would you like to:");
+  Serial.println("Freak out and demand answers (reasonable)?");
+  Serial.println("Analyize your surroundings?");
+  Serial.println("---");
+  Serial.println("---");
+  
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    askForExplain();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    LookAround();
+  }
+  else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    start();
+  }
+}
+
+
+void askForExplain() {
+  Serial.println("'what the [REDACTED] is going on??? who are you and who the [REDACTED] is Toibas??'");
+  Serial.println("You are very understandably confused at the current situation, and the cloaked person seems concerned,");
+  Serial.println("he removes his hood revealing his face, his eyes are red with long white hair and grey skin, his ears are long and pointed,");
+  Serial.println("'Tobi, this isnt funny, its me Eris, rember? Me, you, sif and milo went to slay Smaug?");
+  Serial.println("So now were in combat? well Sif went down, which is why you need to stop being useless");
+  Serial.println("and actually cast the spells you perpared?'");
+  Serial.println("---");
+  Serial.println("would you like to:");
+  Serial.println("Demand further explanation?");
+  Serial.println("Analyize your surroundings?");
+  Serial.println("---");
+  Serial.println("---");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    demandFurther();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    LookAround();
+  }
+  else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    start();
+  }
+}
+
+void LookAround() {
+  Serial.println("You take a moment to analyze your surroundings,");
+  Serial.println("Notices people and situation, also ur wearing robes and have a strange book in hand),");
+  Serial.println("eris says something about casting a spell mabye you should read the part of the book.");
+  Serial.println("---");
+  Serial.println("would you like to:");
+  Serial.println("Read the page?");
+  Serial.println("Demand an explanation?");
+  Serial.println("---");
+  Serial.println("---");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+   // readThePage();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    askForExplain();
+  }
+  else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    start();
+  }
+}
+
+void demandFurther() {
+  Serial.println("eris will be confused and explain how you are supposed to be a wizard so cast a spell already");
+  Serial.println("you also notice teo people in the corner (sif and milo) sif is inkured and milo is healing her,");
+  Serial.println("you notice that in one hand you have a page open in a book with strange writing that you can somehow read,");
+  Serial.println(" you feel like you should probably read it");
+  Serial.println("---");
+ Serial.println("would you like to:");
+  Serial.println("read the page");
+  Serial.println("attempt to explain how you just woke up here and are defo not a wizard");
+  Serial.println("---");
+  Serial.println("---");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    //readPage();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    //IJustWokeUp();
+  }
+  else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    start();
+  }
+}
+
+//void base() {
+ // Serial.println("scene describe");
+ // Serial.println("cnt");
+ // Serial.println("---");
+//  Serial.println("would you like to:");
+ // Serial.println("opt A");
+ // Serial.println("opt B");
+  //Serial.println("---");
+//  Serial.println("---");
+
+ // waitForPress();          // stop here until any button is pushed
+
+ // if (digitalRead(3) == LOW) {
+  //  waitForRelease();      // debounce and let go
+   // opt a();           // jump to the next menu
+ // } else if (digitalRead(4) == LOW) {
+  //  waitForRelease();
+    //opt b();
+ // }
+ // else if (digitalRead(5) == LOW) {
+   // waitForRelease();
+  //  start();
+  //}
+//}
+      </code></pre>
+    </section>
+
+    <a href="index.html">&larr; Back to main page</a>
+  </main>
+</body>
+</html>

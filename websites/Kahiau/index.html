@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What I Learned in Computer Science</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4faff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      border-radius: 0 0 10px 10px;
+      position: relative;
+    }
+
+    .jump-button {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color: #ffffff;
+      color: #1a73e8;
+      border: none;
+      padding: 10px 15px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .jump-button:hover {
+      background-color: #e6f0ff;
+    }
+
+    section {
+      background-color: #ffffff;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      color: #1a73e8;
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    💻 What I Learned in Computer Science Class
+    <button class="jump-button" onclick="document.getElementById('code-section').scrollIntoView({ behavior: 'smooth' });">
+      📂 View Code Projects
+    </button>
+  </header>
+
+  <!-- 10 Topics with Emojis -->
+  <section>
+    <h2>1️⃣ What is an Arduino?</h2>
+    <p>🔌 An Arduino board is a circuit board that powers many things.</p>
+  </section>
+
+  <section>
+    <h2>2️⃣ Describe an Arduino Project</h2>
+    <p>💡 We made powered lights with an Arduino board, wires, and a resistor so it doesn't overpower the light.</p>
+  </section>
+
+  <section>
+    <h2>3️⃣ Favorite Arduino Part</h2>
+    <p>⚡ The 5v because it powers everything.</p>
+  </section>
+
+  <section>
+    <h2>4️⃣ Teaching an AI using Machine Learning</h2>
+    <p>🎥 We were taught using a webcam.</p>
+  </section>
+
+  <section>
+    <h2>5️⃣ Importance of Encryption and Decryption</h2>
+    <p>🔒 Maintaining data security and privacy in the digital age.</p>
+  </section>
+
+  <section>
+    <h2>6️⃣ Example of a Caesar Cipher</h2>
+    <p>🧠 'Ikena Lolo Uila' shifted by +3 becomes:<br><code>🔐 L N H Q D O R O R X L O D</code></p>
+  </section>
+
+  <section>
+    <h2>7️⃣ Favorite Part of Lolo Uila</h2>
+    <p>🎮 Kaulele exhibit was the best because we got to play games.</p>
+  </section>
+
+  <section>
+    <h2>8️⃣ Most Difficult Part of Lolo Uila</h2>
+    <p>🧩 The Caesar cipher boards and wiring the Arduino board. I figured it out with help from my kumu.</p>
+  </section>
+
+  <section>
+    <h2>9️⃣ Favorite Rez-Life Activity</h2>
+    <p>📰 My favorite thing was definitely Sunday because we slept in and did the newspaper fashion show.</p>
+  </section>
+
+  <section>
+    <h2>🔟 Summer Institute Reflection</h2>
+    <p>😊 It was good. The people were nice and I made new friends.</p>
+  </section>
+
+  <!-- Code Projects Section with Emojis -->
+  <section id="code-section">
+    <h2>🧩 Project 1: Arduino Interactive Scene Game</h2>
+    <pre><code>// 🛠️ Setup Function
+void setup() {
+  // 🧠 Initialize serial monitor and buttons
+  Serial.begin(9600);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  startScene(); // 🚀 Start the first scene
+}
+
+// 🔁 Main Loop
+void loop() {
+  // 🤖 All logic happens in scene functions!
+}
+
+void waitForPress(){
+  // ⏸️ Pause until either button is pressed
+  while (digitalRead(3) == HIGH && digitalRead(4) == HIGH){
+    // ⌛ Waiting...
+  }
+}
+
+void waitForRelease(){
+  // ⏬ Wait until both buttons are released
+  while(digitalRead(3) == LOW  || digitalRead(4) == LOW) {
+    delay(10); // ⏳ Debounce
+  }
+}
+
+// 🌾 Start Scene
+void startScene() {
+  Serial.println("🌄 Open Field:");
+  Serial.println("1️⃣ Go to portals");
+  Serial.println("2️⃣ Go to portals");
+  waitForPress();
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();
+    portals();
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    portals();
+  }
+}
+
+// 🌀 Portal Selection
+void portals() {
+  Serial.println("🚪 Portals:");
+  Serial.println("1️⃣ Green portal");
+  Serial.println("2️⃣ Blue portal");
+  waitForPress();
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();
+    green();
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    blue();
+  }
+}
+
+// 💚 Green Portal
+void green() {
+  Serial.println("💚 Green Portal:");
+  Serial.println("1️⃣ Left side");
+  Serial.println("2️⃣ Right side");
+  waitForPress();
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();
+    Serial.println("💀 Game Over — Restarting...");
+    startScene();
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("🏆 YOU WIN — Restarting...");
+    startScene();
+  }
+}
+
+// 🔵 Blue Portal
+void blue() {
+  Serial.println("🔵 Blue Portal:");
+  Serial.println("1️⃣ Go left");
+  Serial.println("2️⃣ Go right");
+  waitForPress();
+
+  if (digitalRead(3) == LOW) {
+    Serial.println("☠️ Game Over — YOU DIED");
+    startScene();
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    Serial.println("🏆 YOU WIN");
+    startScene();
+  }
+}
+</code></pre>
+  </section>
+
+  <footer>
+    🧠 &copy; 2025 Lolo Uila | Computer Science Class Reflections 🌺
+  </footer>
+
+</body>
+</html>

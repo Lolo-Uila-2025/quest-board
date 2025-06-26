@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class Code Collection</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .code-block {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    h2 {
+      color: #4a90e2;
+    }
+
+    footer {
+      background-color: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <header>Code from Class Projects</header>
+
+  <div class="container">
+
+    <h2>Project: Choose Your Own Adventure Game (Pokemon Themed)</h2>
+    <div class="code-block">
+<pre><code>void startScene() {
+  Serial.println("A new journey awaits!");
+  Serial.println("1: Go to lab");
+  Serial.println("2: Go to tall grass");
+  Serial.println("3: Go Home");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      lab();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      tallGrass();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(4) == LOW) {
+      house();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void lab() {
+  Serial.println("You walk into the lab and see that the professor is not there. What do you do?");
+  Serial.println("1: Talk to Lab assistant");
+  Serial.println("2: Go back outside ");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      assistant();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      outside1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void assistant() {
+  Serial.println("You talk to the Lab assistant. He explains that the professor hasn't been in the lab for a while.");
+  Serial.println("1: Go back outside");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      outside1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void outside1() {
+  Serial.println("You walk into the lab and see that the professor is not in there. What do you do?");
+  Serial.println("1: Talk to Lab assistant");
+  Serial.println("2: Go back outside ");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      tallGrass();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      house();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void tallGrass() {
+  Serial.println("You walk into the tall grass and see the professor being attacked. He calls for help! Which ball do you choose?");
+  Serial.println("1: Left");
+  Serial.println("2: Center");
+  Serial.println("3: Right");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      left();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      center();
+      delay(1000);
+      break;
+    }
+        if (digitalRead(4) == LOW) {
+      right();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+//TREEKO
+
+
+void left() {
+  Serial.println("You go to the Left ball. A Treeko pops out! You go to help the professor and command Treeko to...");
+  Serial.println("1: Pound");
+  Serial.println("2: Leer");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      poundTree1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      leerTree1();
+      delay(1000);
+      break;
+    }
+  }
+}
+void poundTree1() {
+  Serial.println("Treeko uses Pound. The opposing pokemon drops down to half health!");
+  Serial.println("1: Pound");
+  Serial.println("2: Leer");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      poundTree2();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      leerTree1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void poundTree2() {
+  Serial.println("Treeko uses Pound. The opposing pokemon fainted and the professor is saved!");
+  Serial.println("1: Talk to the professor");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      talkProfTree();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void leerTree1() {
+  Serial.println("Treeko uses Leer. The opposing pokemons deffense drops!");
+  Serial.println("1: Pound");
+  Serial.println("2: Leer");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      poundTree1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      leerTree1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+//TORCHIC
+
+void center() {
+  Serial.println("You go to the Center ball. A Torchic pops out! You go to help the professor and command Torchic to...");
+  Serial.println("1: Scratch");
+  Serial.println("2: Growl");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      scratchChic1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlChic1();
+      delay(1000);
+      break;
+    }
+  }
+}
+void scratchChic1() {
+  Serial.println("Torchic uses Scratch. The opposing pokemon drops down to half health!");
+  Serial.println("1: Scratch");
+  Serial.println("2: Growl");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      scratchChic2();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlChic1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void scratchChic2() {
+  Serial.println("Torchic uses Scratch. The opposing pokemon fainted and the professor is saved!");
+  Serial.println("1: Talk to the professor");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      talkProfChic();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void growlChic1() {
+  Serial.println("Torchic uses Growl. The opposing pokemons attack drops!");
+  Serial.println("1: Scratch");
+  Serial.println("2: Growl");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      scratchChic1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlChic1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+
+//MUDKIP
+
+
+void right() {
+  Serial.println("You go to the Right ball. A Mudkip pops out! You go to help the professor and command Mudkip to...");
+  Serial.println("1: Tackle");
+  Serial.println("2: Growl");
+  
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      tackleMud1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlMud1();
+      delay(1000);
+      break;
+    }
+  }
+}
+void tackleMud1() {
+  Serial.println("Mudkip uses Tackle. The opposing pokemon drops down to half health!");
+  Serial.println("1: Tackle");
+  Serial.println("2: Growl");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      tackleMud2();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlMud1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void tackleMud2() {
+  Serial.println("Mudkip uses Tackle. The opposing pokemon fainted and the professor is saved!");
+  Serial.println("1: Talk to the professor");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      talkProfMud();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void growlMud1() {
+  Serial.println("Mudkip uses Growl. The opposing pokemons attack drops!");
+  Serial.println("1: Tackle");
+  Serial.println("2: Growl");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      tackleMud1();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      growlMud1();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+void house() {
+  Serial.println("You go back home and see your mom. She asks you why you came back so early and sends you off again.");
+  Serial.println("1: Go back");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      outside2();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void outside2() {
+  Serial.println("You walk back outside. What do you do next?");
+  Serial.println("1: Go to professor lab");
+  Serial.println("2: Go to tall grass");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      lab();
+      delay(1000);
+      break;
+    }
+    if (digitalRead(3) == LOW) {
+      tallGrass();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+void talkProfTree() {
+  Serial.println("The professor rewards you with a Treeko!");
+  Serial.println("1: restart?");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      startScene();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+void talkProfChic() {
+  Serial.println("The professor rewards you with a Torchic!");
+  Serial.println("1: restart?");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      startScene();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+void talkProfMud() {
+  Serial.println("The professor rewards you with a Mudkip!");
+  Serial.println("1: restart?");
+
+  while (true) {
+    if (digitalRead(2) == LOW) {
+      startScene();
+      delay(1000);
+      break;
+    }
+  }
+}
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  startScene();
+}
+
+void loop() {
+  // Empty! All logic is handled inside each scene function.
+}
+</code></pre>
+    </div>
+
+    <h2>Project: Ultrasonic Sensor</h2>
+    <div class="code-block">
+<pre><code>
+#include "SR04.h"
+
+int trigPin = 12;
+int echoPin = 11;
+
+SR04 sr04 = SR04(echoPin, trigPin);
+
+void setup() {
+  // put your setup code here, to run once:
+
+    Serial.begin(9600);
+    delay(1000);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+ int distance = sr04.Distance();   // in cm
+ 
+    Serial.print(distance);
+    Serial.println("cm");
+    delay(1000);
+    
+if (distance <= 20){
+ tone(3, 440, 500);
+    } else {
+        noTone(3);
+        }
+}
+</code></pre>
+    </div>
+
+<h2>Project: RGB LED Colors</h2>
+    <div class="code-block">
+<pre><code>void setup() {
+  // put your setup code here, to run once:
+ pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  analogWrite(9, 255);  // Red
+  analogWrite(10, 255);   // Green
+  analogWrite(11, 255); // Blue
+
+  
+const int redPin = 9;
+const int greenPin = 10;
+const int bluePin = 11;
+
+
+analogWrite (redPin, 100);
+delay(500);
+analogWrite (greenPin, 100);
+delay(500);
+analogWrite (bluePin, 100);
+delay(500);
+
+delay(100);
+  
+}</code></pre>
+    </div>
+
+    <h2>Project: Buzzer</h2>
+    <div class="code-block">
+<pre><code>void setup() {
+  // put your setup code here, to run once:
+tone(3, 440, 500);  // A4 note (440 Hz) for 500ms
+delay(1000);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+tone(3, 330);
+delay(1000);
+tone(3, 220);
+delay(500);
+tone(3, 440);
+delay(500);
+tone(3, 330);
+delay(1000);
+tone(3, 220);
+delay(500);
+tone(3, 440);
+delay(500);
+tone(3, 220);
+delay(1000);
+tone(3, 230);
+delay(1000);
+tone(3, 240);
+delay(1000);
+tone(3, 440);
+delay(500);
+}</code></pre>
+    </div>
+
+    <h2>BONUS: mario bros theme</h2>
+    <div class="code-block">
+<pre><code>
+#define NOTE_B0  31
+#define NOTE_C1  33
+#define NOTE_CS1 35
+#define NOTE_D1  37
+#define NOTE_DS1 39
+#define NOTE_E1  41
+#define NOTE_F1  44
+#define NOTE_FS1 46
+#define NOTE_G1  49
+#define NOTE_GS1 52
+#define NOTE_A1  55
+#define NOTE_AS1 58
+#define NOTE_B1  62
+#define NOTE_C2  65
+#define NOTE_CS2 69
+#define NOTE_D2  73
+#define NOTE_DS2 78
+#define NOTE_E2  82
+#define NOTE_F2  87
+#define NOTE_FS2 93
+#define NOTE_G2  98
+#define NOTE_GS2 104
+#define NOTE_A2  110
+#define NOTE_AS2 117
+#define NOTE_B2  123
+#define NOTE_C3  131
+#define NOTE_CS3 139
+#define NOTE_D3  147
+#define NOTE_DS3 156
+#define NOTE_E3  165
+#define NOTE_F3  175
+#define NOTE_FS3 185
+#define NOTE_G3  196
+#define NOTE_GS3 208
+#define NOTE_A3  220
+#define NOTE_AS3 233
+#define NOTE_B3  247
+#define NOTE_C4  262
+#define NOTE_CS4 277
+#define NOTE_D4  294
+#define NOTE_DS4 311
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_FS4 370
+#define NOTE_G4  392
+#define NOTE_GS4 415
+#define NOTE_A4  440
+#define NOTE_AS4 466
+#define NOTE_B4  494
+#define NOTE_C5  523
+#define NOTE_CS5 554
+#define NOTE_D5  587
+#define NOTE_DS5 622
+#define NOTE_E5  659
+#define NOTE_F5  698
+#define NOTE_FS5 740
+#define NOTE_G5  784
+#define NOTE_GS5 831
+#define NOTE_A5  880
+#define NOTE_AS5 932
+#define NOTE_B5  988
+#define NOTE_C6  1047
+#define NOTE_CS6 1109
+#define NOTE_D6  1175
+#define NOTE_DS6 1245
+#define NOTE_E6  1319
+#define NOTE_F6  1397
+#define NOTE_FS6 1480
+#define NOTE_G6  1568
+#define NOTE_GS6 1661
+#define NOTE_A6  1760
+#define NOTE_AS6 1865
+#define NOTE_B6  1976
+#define NOTE_C7  2093
+#define NOTE_CS7 2217
+#define NOTE_D7  2349
+#define NOTE_DS7 2489
+#define NOTE_E7  2637
+#define NOTE_F7  2794
+#define NOTE_FS7 2960
+#define NOTE_G7  3136
+#define NOTE_GS7 3322
+#define NOTE_A7  3520
+#define NOTE_AS7 3729
+#define NOTE_B7  3951
+#define NOTE_C8  4186
+#define NOTE_CS8 4435
+#define NOTE_D8  4699
+#define NOTE_DS8 4978
+
+#define melodyPin 3
+//Mario main theme melody
+int melody[] = {
+  NOTE_E7, NOTE_E7, 0, NOTE_E7,
+  0, NOTE_C7, NOTE_E7, 0,
+  NOTE_G7, 0, 0,  0,
+  NOTE_G6, 0, 0, 0,
+
+  NOTE_C7, 0, 0, NOTE_G6,
+  0, 0, NOTE_E6, 0,
+  0, NOTE_A6, 0, NOTE_B6,
+  0, NOTE_AS6, NOTE_A6, 0,
+
+  NOTE_G6, NOTE_E7, NOTE_G7,
+  NOTE_A7, 0, NOTE_F7, NOTE_G7,
+  0, NOTE_E7, 0, NOTE_C7,
+  NOTE_D7, NOTE_B6, 0, 0,
+
+  NOTE_C7, 0, 0, NOTE_G6,
+  0, 0, NOTE_E6, 0,
+  0, NOTE_A6, 0, NOTE_B6,
+  0, NOTE_AS6, NOTE_A6, 0,
+
+  NOTE_G6, NOTE_E7, NOTE_G7,
+  NOTE_A7, 0, NOTE_F7, NOTE_G7,
+  0, NOTE_E7, 0, NOTE_C7,
+  NOTE_D7, NOTE_B6, 0, 0
+};
+//Mario main them tempo
+int tempo[] = {
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  9, 9, 9,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  9, 9, 9,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+};
+//Underworld melody
+int underworld_melody[] = {
+  NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4,
+  NOTE_AS3, NOTE_AS4, 0,
+  0,
+  NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4,
+  NOTE_AS3, NOTE_AS4, 0,
+  0,
+  NOTE_F3, NOTE_F4, NOTE_D3, NOTE_D4,
+  NOTE_DS3, NOTE_DS4, 0,
+  0,
+  NOTE_F3, NOTE_F4, NOTE_D3, NOTE_D4,
+  NOTE_DS3, NOTE_DS4, 0,
+  0, NOTE_DS4, NOTE_CS4, NOTE_D4,
+  NOTE_CS4, NOTE_DS4,
+  NOTE_DS4, NOTE_GS3,
+  NOTE_G3, NOTE_CS4,
+  NOTE_C4, NOTE_FS4, NOTE_F4, NOTE_E3, NOTE_AS4, NOTE_A4,
+  NOTE_GS4, NOTE_DS4, NOTE_B3,
+  NOTE_AS3, NOTE_A3, NOTE_GS3,
+  0, 0, 0
+};
+//Underwolrd tempo
+int underworld_tempo[] = {
+  12, 12, 12, 12,
+  12, 12, 6,
+  3,
+  12, 12, 12, 12,
+  12, 12, 6,
+  3,
+  12, 12, 12, 12,
+  12, 12, 6,
+  3,
+  12, 12, 12, 12,
+  12, 12, 6,
+  6, 18, 18, 18,
+  6, 6,
+  6, 6,
+  6, 6,
+  18, 18, 18, 18, 18, 18,
+  10, 10, 10,
+  10, 10, 10,
+  3, 3, 3
+};
+
+void setup(void)
+{
+  pinMode(3, OUTPUT);//buzzer
+  pinMode(13, OUTPUT);//led indicator when singing a note
+
+}
+void loop()
+{
+  //sing the tunes
+  sing(1);
+  sing(1);
+  sing(2);
+}
+int song = 0;
+
+void sing(int s) {
+  // iterate over the notes of the melody:
+  song = s;
+  if (song == 2) {
+    Serial.println(" 'Underworld Theme'");
+    int size = sizeof(underworld_melody) / sizeof(int);
+    for (int thisNote = 0; thisNote < size; thisNote++) {
+
+      // to calculate the note duration, take one second
+      // divided by the note type.
+      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+      int noteDuration = 1000 / underworld_tempo[thisNote];
+
+      buzz(melodyPin, underworld_melody[thisNote], noteDuration);
+
+      // to distinguish the notes, set a minimum time between them.
+      // the note's duration + 30% seems to work well:
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(pauseBetweenNotes);
+
+      // stop the tone playing:
+      buzz(melodyPin, 0, noteDuration);
+
+    }
+
+  } else {
+
+    Serial.println(" 'Mario Theme'");
+    int size = sizeof(melody) / sizeof(int);
+    for (int thisNote = 0; thisNote < size; thisNote++) {
+
+      // to calculate the note duration, take one second
+      // divided by the note type.
+      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+      int noteDuration = 1000 / tempo[thisNote];
+
+      buzz(melodyPin, melody[thisNote], noteDuration);
+
+      // to distinguish the notes, set a minimum time between them.
+      // the note's duration + 30% seems to work well:
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(pauseBetweenNotes);
+
+      // stop the tone playing:
+      buzz(melodyPin, 0, noteDuration);
+
+    }
+  }
+}
+
+void buzz(int targetPin, long frequency, long length) {
+  digitalWrite(13, HIGH);
+  long delayValue = 1000000 / frequency / 2; // calculate the delay value between transitions
+  //// 1 second's worth of microseconds, divided by the frequency, then split in half since
+  //// there are two phases to each cycle
+  long numCycles = frequency * length / 1000; // calculate the number of cycles for proper timing
+  //// multiply frequency, which is really cycles per second, by the number of seconds to
+  //// get the total number of cycles to produce
+  for (long i = 0; i < numCycles; i++) { // for the calculated length of time...
+    digitalWrite(targetPin, HIGH); // write the buzzer pin high to push out the diaphram
+    delayMicroseconds(delayValue); // wait for the calculated delay value
+    digitalWrite(targetPin, LOW); // write the buzzer pin low to pull back the diaphram
+    delayMicroseconds(delayValue); // wait again or the calculated delay value
+  }
+  digitalWrite(13, LOW);
+
+}</code></pre>
+    </div>
+
+    <h2>Project: Menu Navigation Interface</h2>
+    <div class="code-block">
+<pre><code>
+void waitForPress() {
+  // pause here until EITHER button reads LOW (pressed)
+  while (digitalRead(3) == HIGH && digitalRead(4) == HIGH && digitalRead(5) == HIGH) {
+    // just wait
+  }
+}
+
+void waitForRelease() {
+  // keep waiting until BOTH buttons go back to HIGH (released)
+  while (digitalRead(3) == LOW || digitalRead(4) == LOW || digitalRead(5) == LOW) {
+    delay(10);   // tiny pause to avoid bouncy presses
+  }
+}
+void mainMenu() {
+  Serial.println("This is the main menu");
+  Serial.println("Button 1 goes to left menu");
+  Serial.println("Button 2 goes to right menu");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    leftMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    rightMenu();
+  } else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    secretMenu();
+  }
+}
+
+void leftMenu() {
+  Serial.println("This is the left menu");
+  Serial.println("Button 1 goes to main menu");
+  Serial.println("Button 2 goes to right menu");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    mainMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    rightMenu();
+  }
+}
+
+void rightMenu() {
+  Serial.println("This is the right menu");
+  Serial.println("Button 1 goes to left menu");
+  Serial.println("Button 2 goes to main menu");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    leftMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    mainMenu();
+  }
+}
+void secretMenu() {
+  Serial.println("This is the SECRET menu!");
+  Serial.println("Button 1 goes to left menu");
+  Serial.println("Button 2 goes to right menu");
+  Serial.println("Button 3 goes to main menu");
+
+  waitForPress();          // stop here until any button is pushed
+
+  if (digitalRead(3) == LOW) {
+    waitForRelease();      // debounce and let go
+    leftMenu();           // jump to the next menu
+  } else if (digitalRead(4) == LOW) {
+    waitForRelease();
+    rightMenu();
+  }else if (digitalRead(5) == LOW) {
+    waitForRelease();
+    mainMenu();
+  }
+}
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(5,INPUT_PULLUP);
+pinMode(3,INPUT_PULLUP);
+pinMode(4,INPUT_PULLUP);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  mainMenu();
+}</code></pre>
+    </div>
+
+      <h2>NRF_Chat_Messenger</h2>
+    <div class="code-block">
+<pre><code>#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+#define CE_PIN  7
+#define CSN_PIN 8
+
+RF24 radio(CE_PIN, CSN_PIN);
+
+const byte  pipeAddress[6] = "CHAT1";
+const uint8_t MAX_LEN      = 32;
+const int    SHIFT         = 0; //0-25 CEASAR CIPHER
+const String USERNAME      = "Ku";  // Change this!
+
+bool expectUsername = false;
+bool inMessage      = false;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {}
+  Serial.print(F("\nnRF24L01 Serial Chat – user: "));
+  Serial.println(USERNAME);
+  Serial.println(F("Type a message and press Enter.\n"));
+
+  if (!radio.begin()) {
+    Serial.println(F("Radio hardware not responding"));
+    while (1) { delay(1000); }
+  }
+
+  radio.setPALevel(RF24_PA_LOW);
+  radio.setDataRate(RF24_250KBPS);
+  radio.setRetries(5, 15);
+
+  radio.openWritingPipe(pipeAddress);
+  radio.openReadingPipe(1, pipeAddress);
+  radio.startListening();
+}
+
+void loop() {
+  if (radio.available())  handleIncomingChunk();
+  if (Serial.available()) handleOutgoingMessage();
+}
+
+String encrypt(const String &msg, int shift) {
+  String out;
+  for (char c : msg) {
+    if (c >= 'a' && c <= 'z')
+      out += char('a' + (c - 'a' + shift) % 26);
+    else if (c >= 'A' && c <= 'Z')
+      out += char('A' + (c - 'A' + shift) % 26);
+    else
+      out += c;
+  }
+  return out;
+}
+String decrypt(const String &msg, int shift) { return encrypt(msg, 26 - (shift % 26)); }
+
+void handleOutgoingMessage() {
+  String plain = Serial.readStringUntil('\n');
+  plain.trim();
+  if (plain.length() == 0) return;
+
+  String cipher = encrypt(plain, SHIFT);
+
+  radio.stopListening();
+  radio.write("\n", 2);
+  radio.startListening();
+  delay(5);
+
+  String userTag = USERNAME + ":";
+  for (unsigned int i = 0; i < userTag.length(); i += MAX_LEN) {
+    String chunk = userTag.substring(i, i + MAX_LEN);
+    radio.stopListening();
+    radio.write(chunk.c_str(), chunk.length() + 1);
+    radio.startListening();
+    delay(5);
+  }
+
+  for (unsigned int i = 0; i < cipher.length(); i += MAX_LEN) {
+    String chunk = cipher.substring(i, i + MAX_LEN);
+    radio.stopListening();
+    radio.write(chunk.c_str(), chunk.length() + 1);
+    radio.startListening();
+    delay(10);
+  }
+
+  Serial.print(F("\nYou → "));
+  Serial.println(plain);
+}
+
+void handleIncomingChunk() {
+  char buf[MAX_LEN + 1] = {0};
+  radio.read(&buf, sizeof(buf));
+  String chunk = String(buf);
+
+  if (chunk == "\n") {
+    Serial.println();
+    expectUsername = true;
+    inMessage = false;
+    return;
+  }
+
+  if (expectUsername) {
+    Serial.print(chunk); Serial.print(' ');
+    expectUsername = false;
+    inMessage = true;
+    return;
+  }
+
+  if (inMessage) {
+    Serial.print(decrypt(chunk, SHIFT));
+  }
+}</code></pre>
+    </div>
+    <!-- Add more projects below -->
+    <!-- Example: -->
+    <!--
+    <h2>Project Title</h2>
+    <div class="code-block">
+<pre><code>Paste your code here</code></pre>
+    </div>
+    -->
+
+  </div>
+
+  <footer>&copy; 2025 My Learning Journal</footer>
+
+</body>
+</html>
