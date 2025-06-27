@@ -79,7 +79,8 @@
     const tr = document.createElement("tr");
     const medal = medals[i] || "";
     tr.innerHTML =
-      `<td>${medal}<a href="websites/${s.id}/index.html" target="_blank" style="color: inherit; text-decoration: underline;">${s.name}</a></td>
+      `<td>${medal}<a href="websites/${s.id.charAt(0).toUpperCase() + s.id.slice(1)}/index.html" target="_blank" style="color: inherit; text-decoration: underline;">${s.name}</a>
+</td>
  <td>${s.earned}</td>
  <td>${s.current}</td>`;
     tbody.appendChild(tr);
